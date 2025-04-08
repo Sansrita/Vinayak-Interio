@@ -31,7 +31,7 @@ const Header = () => {
         <div className='flex items-center justify-between'>
           {/* Logo Section */}
           <Logo />
-          <div className='flex items-center gap-x-6'>
+          <div className='flex items-center gap-x-8 pl-12'>
             {/* Nav Section*/}
             <Nav
             containerStyles='hidden xl:flex gap-x-8 items-center'

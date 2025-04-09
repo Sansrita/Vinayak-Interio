@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Logo from './Logo';
-import ThemeToggler from './ThemeToggler';
+//import ThemeToggler from './ThemeToggler';
 import Nav from './Nav';
 import Mobilenavigation from './Mobilenavigation';
 import { usePathname } from 'next/navigation';
@@ -38,8 +38,8 @@ const Header = () => {
             linkStyles='relative hover:text-primary transition-all'
             underlineStyles='absolute left-0 top-full h-[2px] bg-primary w-full'
             />
-            {/* Theme Toggler*/}
-            <ThemeToggler />
+            {/* Theme Toggler
+            <ThemeToggler />  */}
 
             {/* Mobile Navigation */}
             <div className='xl:hidden'>

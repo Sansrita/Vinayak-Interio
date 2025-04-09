@@ -33,7 +33,9 @@
     "devDependencies": {
         "@babel/core": "^7.26.10",
         "@tailwindcss/postcss": "^4",
+        "autoprefixer": "^10.4.21",
         "babel-eslint": "^10.1.0",
-        "tailwindcss": "^4"
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.1.3"
     }
 }

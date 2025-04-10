@@ -1,5 +1,7 @@
 'use client';
 
+import { titleVariants } from "@/utils/animation";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Badge from "./Badge";
 
@@ -12,15 +14,18 @@ const CompanySection = () => {
       </h2>
 
       {/* Features */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-24">
-        <Badge title="SINCE" subtitle="2017" />
+      <motion.div
+      initial = "offscreen"
+      whileInView={"onscreen"}
+      variants={titleVariants}
+       className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-24">
+        <Badge title="SINCE" endCountNum={2017} />
         <Badge title="PREMIUM" subtitle="Materials" />
-        <Badge title="10 - 15 YEARS" subtitle="Warranty" />
+        <Badge title="YEARS" endCountNum={10} endCountText="-15" />
         <Badge title="COMPLETION" subtitle="45 Working Days" />
-        <Badge title="PROJECTS" subtitle="75+ Per Year" />
+        <Badge title="PROJECTS" endCountNum={75} endCountText="+ Per Year" />
         <Badge title="LIFELONG" subtitle="Service Support" />
-      </div>
-
+      </motion.div>
     </main>
   );
 };

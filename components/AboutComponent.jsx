@@ -26,10 +26,7 @@ const AboutComponent = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
+    setFormData({ ...formData, [name]: value })
   }
 
   const handleSubmit = async (e) => {
@@ -39,9 +36,7 @@ const AboutComponent = () => {
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           to: "sansritasaha@gmail.com",
           subject: "New Design Consultation Request",
@@ -74,13 +69,13 @@ const AboutComponent = () => {
     <div className="about-component">
       <div className="project-timeline">
         <h2 className="project-heading">
-          PROJECT COMPLETION IN <span className="purple-text">40 WORKING DAYS*</span>
+          PROJECT COMPLETION IN <span className="purple-text">45 WORKING DAYS*</span>
         </h2>
 
         <div className="timeline-container">
           {/* Step 1 */}
           <div className="timeline-step">
-            <div className="timeline-icon purple glow-on-hover">
+            <div className="timeline-icon glow-on-hover">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                 <circle cx="12" cy="8" r="2" />
                 <circle cx="8" cy="12" r="2" />
@@ -94,9 +89,9 @@ const AboutComponent = () => {
 
           <div className="timeline-arrow">→</div>
 
-          {/* Step 2 (Initially hidden) */}
+          {/* Step 2 */}
           <div className="timeline-step initially-hidden">
-            <div className="timeline-icon purple glow-on-hover">
+            <div className="timeline-icon glow-on-hover">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                 <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                 <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
@@ -109,7 +104,7 @@ const AboutComponent = () => {
 
           <div className="timeline-arrow">→</div>
 
-          {/* Step 3 (Initially hidden) */}
+          {/* Step 3 */}
           <div className="timeline-step initially-hidden">
             <div className="timeline-icon glow-on-hover">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -121,7 +116,7 @@ const AboutComponent = () => {
                 <path d="M15 16v4" />
               </svg>
             </div>
-            <div className="timeline-text">Production at Own<br />Factories</div>
+            <div className="timeline-text">Production<br />Factories</div>
           </div>
 
           <div className="timeline-arrow">→</div>
@@ -160,7 +155,6 @@ const AboutComponent = () => {
         </button>
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -182,10 +176,7 @@ const AboutComponent = () => {
                       <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" required />
                     </div>
                     <div className="form-group phone-input">
-                      <div className="country-code">
-                        
-                        <span>+91</span>
-                      </div>
+                      <div className="country-code"><span>+91</span></div>
                       <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleChange} placeholder="Contact Number" required />
                     </div>
                     <div className="form-group">

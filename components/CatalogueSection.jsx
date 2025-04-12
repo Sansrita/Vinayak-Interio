@@ -35,6 +35,8 @@ export default function CatalogueSection() {
     ]
   
     return (
+        <section className="px-4 py-12">
+            <h2 className="text-3xl font-bold text-center mb-10 "> WHAT WE DO </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 divide-gray-300 lg:divide-x">
           {items.map((item) => (
             <div key={item.id} className="relative overflow-hidden group">
@@ -67,5 +69,6 @@ export default function CatalogueSection() {
             </div>
           ))}
         </div>
+        </section>
       )
     }

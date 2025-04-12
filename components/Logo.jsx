@@ -1,5 +1,5 @@
 import Link from "next/link";
-import logo from "../public/logo.png";
+import logo from "../public/03.svg";
 import Image from "next/image";
 
 const Logo = () => {
@@ -7,9 +7,10 @@ const Logo = () => {
     <Link href= '/'>
         <Image
         src = {logo}
-        width = {160}
-        height = {55}
-        alt = ""
+        width={120}
+        height={20}
+        alt="Logo"
+        style={{ filter: "invert(1)" }} 
         />
     </Link>
   )

@@ -23,10 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <body className={Josef.className}>
+      <body className="font-poppins">
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
           {children}

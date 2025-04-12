@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: 'class',
@@ -13,6 +15,10 @@ module.exports = {
                 foreground: '#f5f5f5',
                 border: '#2e2e2e',
                 ring: '#4a4a4a',
+            },
+            fontFamily: {
+                poppins: ['var(--font-poppins)', ...fontFamily.sans],
+                montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
             },
         },
     },

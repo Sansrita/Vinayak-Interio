@@ -31,13 +31,17 @@ export default function CatalogSwiperSection(){
                 </div>
 
                 <motion.div 
-                initial="offscreen"
-                whileInView="onscreen"
-                variants={tagVariants}
-                className="grid grid-cols-2 text-gray-500 gap-x-8">
-                    <p> With our passion for design and decor, we have created a collection of furniture and accessories that will help you to create a comfortable and stylish home. With our passion for design and decor, we have created a collection of furniture and accessories that will help you create a comfortable and stylish home. </p>
-                    <p> With our passion for design and decor, we have created a collection of furniture and accessories that will help you to create a comfortable and stylish home. With our passion for design and decor, we have created a collection of furniture and accessories that will help you create a comfortable and stylish home. </p>
-
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    variants={tagVariants}
+                    className="grid grid-cols-2 gap-x-8"
+                >
+                <p className="text-gray-500 hover:text-white hover:font-bold transition-colors duration-200">
+                    With our passion for design and decor, we have created a collection of furniture and accessories that will help you to create a comfortable and stylish home. With our passion for design and decor, we have created a collection of furniture and accessories that will help you create a comfortable and stylish home.
+                </p>
+                <p className="text-gray-500 hover:text-white hover:font-bold transition-colors duration-200">
+                    With our passion for design and decor, we have created a collection of furniture and accessories that will help you to create a comfortable and stylish home. With our passion for design and decor, we have created a collection of furniture and accessories that will help you create a comfortable and stylish home.
+                </p>
                 </motion.div>
 
                 <a href="/gallery">

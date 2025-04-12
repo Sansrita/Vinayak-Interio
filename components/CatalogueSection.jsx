@@ -55,11 +55,11 @@ export default function CatalogueSection() {
                     <p>{item.category}</p>
                     <span>{item.id}</span>
                   </div>
-                  <a className="block text-xl font-semibold" href="#">
+                  <a className="block text-xl font-semibold" href="projects">
                     {item.title}
                   </a>
                   <p className="py-4 opacity-90">{item.description}</p>
-                  <a className="inline-flex items-center font-medium hover:underline" href="#">
+                  <a className="inline-flex items-center font-medium hover:underline" href="projects">
                     See Details <TbArrowNarrowRight className="ml-2" />
                   </a>
                 </div>

@@ -150,7 +150,7 @@ const AboutComponent = () => {
           </div>
         </div>
 
-        <button className="consultant-button" onClick={openModal}>
+        <button className="consultant-button text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2" onClick={openModal}>
           Talk to Our Design Consultant
         </button>
       </div>

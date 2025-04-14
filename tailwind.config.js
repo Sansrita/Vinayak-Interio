@@ -15,6 +15,7 @@ module.exports = {
                 foreground: '#f5f5f5',
                 border: '#2e2e2e',
                 ring: '#4a4a4a',
+                tertiary: '#EBB866', // ← add your preferred tertiary color here
             },
             fontFamily: {
                 poppins: ['var(--font-poppins)', ...fontFamily.sans],

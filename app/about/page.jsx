@@ -44,7 +44,21 @@ const page = () => {
         </div>
 
         {/* Team Section */}
-        <div></div>
+        <div className='lg:py-20'>
+          <div className='pt-8 pb-4'>
+            <h1 className='text-4xl font-bold tracking-wider text-center uppercase'>Team</h1>
+          </div>
+
+          <div className='grid py-8'>
+            <div className='border-2 border-primary'>
+              <div className='p-4 text-center bg-gray-100 aspect-square dark:bg-transparent -m-0.5 transition hover:-translate-y-3 hover:-translate-x-3'>
+                <Image src='/image/profile2.jpg' width={200} height={200} alt='team' className='mx-auto rounded-full'/>
+                <h2 className='py-4 text-2xl font-semibold uppercase'> Building Surveys </h2>
+                <p className='text-sm'>Creativity is the ability to generate, create or discover new ideas, solutions and positbilities. </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

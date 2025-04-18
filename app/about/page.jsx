@@ -1,4 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { TbArrowRight } from "react-icons/tb";
 
 const page = () => {
   const imageUrl = "/image/whoweare.jpg";
@@ -21,6 +24,27 @@ const page = () => {
             Our Interior design company is a company that provides interior design services for homes, offices, apartments and others. We provide the best interior design services for you. We have a team that is experienced in the field of interior. 
           </p>
         </div>
+
+        <div className='items-center lg:flex gap-x-8'>
+          {/* Left Image Section */}
+          <div className='w-full'>
+            <Image src="/image/gallery1123.jpg" alt="img" width={700} height={700} />
+          </div>
+          {/* Right Content Section */}
+          <div>
+            <p className='pb-8 tracking-wide mt-6'>
+            Our Interior design company is a company that provides interior design services for homes, offices, apartments and others. We provide the best interior design services for you. We have a team that is experienced in the field of interior. <br /><br />
+            Our Interior design company is a company that provides interior design services for homes, offices, apartments and others. We provide the best interior design services for you. We have a team that is experienced in the field of interior. <br /><br />
+            <span className='text-xl font-extrabold tracking-tight'>
+            Interior design company is a company that provides interior design services for homes, offices, apartments and others.
+            </span>
+            </p>
+            <Button className="inline-flex items-center px-8 py-3 shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">Read More <TbArrowRight className='w-5 h-5 ml-2'/> </Button>
+          </div>
+        </div>
+
+        {/* Team Section */}
+        <div></div>
       </div>
     </div>
   );

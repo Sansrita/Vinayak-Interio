@@ -52,19 +52,16 @@ export default function Footer() {
                 <Link href="/" className="text-white hover:text-gray-400">
                   <FaInstagram size={24} />
                 </Link>
-                <Link href="/" className="text-white hover:text-gray-400">
+                <Link href="https://www.facebook.com/vinayakinterio?mibextid=ZbWKwL" className="text-white hover:text-gray-400">
                   <FaFacebookF size={24} />
                 </Link>
-                <Link href="/" className="text-white hover:text-gray-400">
-                  <FaLinkedinIn size={24} />
-                </Link>
-                <Link href="/" className="text-white hover:text-gray-400">
+                <Link href="https://x.com/vinayak_interio?t=P9oZE1krgQLaCtOxaedZZw&s=09" className="text-white hover:text-gray-400">
                   <FaTwitter size={24} />
                 </Link>
-                <Link href="/" className="text-white hover:text-gray-400">
+                <Link href="https://youtube.com/@vinayakinterio?si=QlHxCZhptvaaGPol" className="text-white hover:text-gray-400">
                   <FaYoutube size={24} />
                 </Link>
-                <Link href="/" className="text-white hover:text-gray-400">
+                <Link href="https://pin.it/5jEbmmd24" className="text-white hover:text-gray-400">
                   <FaPinterest size={24} />
                 </Link>
               </div>

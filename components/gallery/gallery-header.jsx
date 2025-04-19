@@ -25,13 +25,13 @@ export default function GalleryHeader() {
       {/* Contact Buttons */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2">
         <a
-          href="tel:+1234567890"
+          href="tel:+91 6289042957"
           className="bg-yellow-500 text-white p-3 rounded-full flex items-center justify-center hover:bg-gray-950 transition-colors"
         >
           <Phone className="h-6 w-6" />
         </a>
         <a
-          href="https://wa.me/1234567890"
+          href="https://wa.me/message/A5C4GDLREM33G1"
           className="bg-green-500 text-white p-3 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
@@ -39,7 +39,7 @@ export default function GalleryHeader() {
           </svg>
         </a>
         <a
-          href="mailto:info@example.com"
+          href="mailto:vinayakinterio1@gmail.com"
           className="bg-yellow-500 text-white p-3 rounded-full flex items-center justify-center hover:bg-gray-950 transition-colors"
         >
           <Mail className="h-6 w-6" />

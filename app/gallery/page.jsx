@@ -1,11 +1,14 @@
-import React from 'react'
+import GalleryHeader from "@/components/gallery/gallery-header"
+import GalleryGrid from "@/components/gallery/gallery-grid"
 
-const page = () => {
+export default function GalleryPage() {
   return (
-    <div>
-      Gallery
-    </div>
+    <main className="min-h-screen">
+      <GalleryHeader />
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold text-center mb-12">Interior Gallery</h1>
+        <GalleryGrid />
+      </div>
+    </main>
   )
 }
-
-export default page

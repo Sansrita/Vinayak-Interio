@@ -12,10 +12,10 @@ const posts = [
         description: 'it is a fantastic theme with tons of design and layout options, and the customer service is simple outstanding. They respond immediately and solve any inconvenience, no matter how small.',
         date: 'March 16, 2024',
         datetime: '2024-03-16',
-        category: {title: '4.0', href: '#'},
+        category: {title: '4.5', href: '#'},
         author: {
             name: 'ABCD',
-            role: 'Co-Founder',
+            role: 'Customer',
             href: '#',
             imageUrl: 
             "/image/profile1.jpg",
@@ -31,7 +31,7 @@ const posts = [
         category: {title: '4.7', href: '#'},
         author: {
             name: 'EFGH',
-            role: 'CEO',
+            role: 'Customer',
             href: '#',
             imageUrl: 
             "/image/profile1.jpg",
@@ -47,7 +47,7 @@ const posts = [
         category: {title: '4.3', href: '#'},
         author: {
             name: 'IJKL',
-            role: 'CTO',
+            role: 'Customer',
             href: '#',
             imageUrl: 
             "/image/profile1.jpg",

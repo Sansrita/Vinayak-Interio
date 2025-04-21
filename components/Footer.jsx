@@ -49,7 +49,7 @@ export default function Footer() {
             <div className="flex flex-col">
               {/* Social Media Links with Icons */}
               <div className="flex space-x-4">
-                <Link href="/" className="text-white hover:text-gray-400">
+                <Link href="https://www.instagram.com/vinayak_interio22?igsh=MWFkdDd1aHh1dHJmNQ==" className="text-white hover:text-gray-400">
                   <FaInstagram size={24} />
                 </Link>
                 <Link href="https://www.facebook.com/vinayakinterio?mibextid=ZbWKwL" className="text-white hover:text-gray-400">

@@ -3,72 +3,87 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { desVariants, tagVariants, titleVariants } from "@/utils/animation";
-
-// Importing icons from react-icons
-import { FaInstagram, FaFacebookF, FaLinkedinIn, FaTwitter, FaYoutube, FaPinterest } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaTwitter,
+  FaYoutube,
+  FaPinterest,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
     <div className="bg-black dark:bg-primary">
-      <div className="max-w-7xl mx-auto px-6 py-14 lg:grid lg:grid-cols-2 text-white">
-        <div className="grid gap-4 text-left lg:pb-0 lg:grid-cols-3 w-full">
+      <div className="max-w-7xl mx-auto px-6 py-6 text-white">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-y-6">
+
+          {/* Company Links */}
+          {/* Company Section */}
           <motion.div
             initial="offscreen"
             whileInView="onscreen"
             variants={titleVariants}
+            className="text-left"
           >
-            <h2 className="pb-4 text-xl font-semibold uppercase">Company</h2>
-            <div className="flex flex-col">
-              <Link href="/" className="py-1 hover:underline">About Us</Link>
-              <Link href="/" className="py-1 hover:underline">Press</Link>
-              <Link href="/" className="py-1 hover:underline">Projects</Link>
-              <Link href="/" className="py-1 hover:underline">Contact</Link>
+            <h2 className="text-xl font-semibold uppercase mb-2">Company</h2>
+            <div className="flex flex-wrap justify-center gap-x-6">
+              <Link href="/about" className="hover:underline">About Us</Link>
+              <Link href="/projects" className="hover:underline">Our Projects</Link>
+              <Link href="/gallery" className="hover:underline">Gallery</Link>
+              <Link href="/contact" className="hover:underline">Contact Us</Link>
             </div>
           </motion.div>
 
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            variants={desVariants}
-          >
-            <h2 className="pb-4 text-xl font-semibold uppercase">Development</h2>
-            <div className="flex flex-col">
-              <Link href="/" className="py-1 hover:underline">Documentation</Link>
-              <Link href="/" className="py-1 hover:underline">Reference</Link>
-              <Link href="/" className="py-1 hover:underline">Change Log</Link>
-              <Link href="/" className="py-1 hover:underline">Status</Link>
-            </div>
-          </motion.div>
-
+          {/* Connect + WhatsApp */}
           <motion.div
             initial="offscreen"
             whileInView="onscreen"
             variants={tagVariants}
+            className="text-left"
           >
-            <h2 className="pb-4 text-xl font-semibold uppercase">Connect</h2>
-            <div className="flex flex-col">
-              {/* Social Media Links with Icons */}
-              <div className="flex space-x-4">
-                <Link href="https://www.instagram.com/vinayak_interio22?igsh=MWFkdDd1aHh1dHJmNQ==" className="text-white hover:text-gray-400">
-                  <FaInstagram size={24} />
-                </Link>
-                <Link href="https://www.facebook.com/vinayakinterio?mibextid=ZbWKwL" className="text-white hover:text-gray-400">
-                  <FaFacebookF size={24} />
-                </Link>
-                <Link href="https://x.com/vinayak_interio?t=P9oZE1krgQLaCtOxaedZZw&s=09" className="text-white hover:text-gray-400">
-                  <FaTwitter size={24} />
-                </Link>
-                <Link href="https://youtube.com/@vinayakinterio?si=QlHxCZhptvaaGPol" className="text-white hover:text-gray-400">
-                  <FaYoutube size={24} />
-                </Link>
-                <Link href="https://pin.it/5jEbmmd24" className="text-white hover:text-gray-400">
-                  <FaPinterest size={24} />
-                </Link>
-              </div>
+            <h2 className="text-xl font-semibold uppercase mb-2">Connect</h2>
+            <div className="flex flex-wrap justify-center gap-x-6">
+            <Link href="https://www.instagram.com/vinayak_interio22" className="text-white hover:text-gray-400">
+              <FaInstagram size={20} />
+            </Link>
+            <Link href="https://www.facebook.com/vinayakinterio" className="text-white hover:text-gray-400">
+              <FaFacebookF size={20} />
+            </Link>
+            <Link href="https://x.com/vinayak_interio" className="text-white hover:text-gray-400">
+              <FaTwitter size={20} />
+            </Link>
+            <Link href="https://youtube.com/@vinayakinterio" className="text-white hover:text-gray-400">
+              <FaYoutube size={20} />
+            </Link>
+            <Link href="https://pin.it/5jEbmmd24" className="text-white hover:text-gray-400">
+              <FaPinterest size={20} />
+            </Link>
+            </div>
+            {/* Social Icons */}
+            
+
+            {/* WhatsApp */}
+            
+          </motion.div>
+
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            variants={titleVariants}
+            className="text-left"
+          >
+            <h2 className="text-xl font-semibold uppercase mb-2">For any inquiry, DM us in</h2>
+            <div className="flex flex-wrap justify-center gap-x-6">
+            <Link href="https://wa.me/message/A5C4GDLREM33G1" className="text-white hover:text-gray-400">
+              Whatsapp
+            </Link>
             </div>
           </motion.div>
         </div>
       </div>
+
 
       {/* Copyright */}
       <motion.div
@@ -82,8 +97,8 @@ export default function Footer() {
             <p>&copy; 2025 Vinayak Interio. All Rights Reserved</p>
           </div>
           <div>
-            <Link className="p-4 hover:underline" href='/'>Privacy</Link>
-            <Link className="p-4 hover:underline" href='/'>Terms</Link>
+            <Link className="p-4 hover:underline" href="/">Privacy</Link>
+            <Link className="p-4 hover:underline" href="/">Terms</Link>
           </div>
         </div>
       </motion.div>

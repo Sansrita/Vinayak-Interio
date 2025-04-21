@@ -34,7 +34,7 @@ const ContactPage = () => {
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white p-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">LEADING INTERIOR</h1>
-          <h2 className="text-3xl md:text-5xl font-semibold text-center">Design Company in India</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold text-center">Design Company in Kolkata</h2>
         </div>
       </div>
 
@@ -151,12 +151,8 @@ const ContactPage = () => {
               <h3 className="text-2xl font-semibold mb-6">Working Hours</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span>Monday - Friday</span>
+                  <span>Monday - Saturday</span>
                   <span>10:00 AM - 7:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 5:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>

@@ -34,7 +34,7 @@ export default function CatalogueSection() {
       title: "Clean Aesthetic Bathroom Setup",
       image: "/image/bathroomcat.jpg",
       description: "Stylish bathroom with a clean and aesthetic design for your family.",
-      link: "/projects",
+      link: "/projects/bathroom",
     },
   ]
 

@@ -8,24 +8,24 @@ import { desVariants, titleVariants } from "@/utils/animation"
 import { ArrowLeft } from "lucide-react"
 import { Phone, Mail } from "lucide-react"
 
-const KitchenProjectPage = () => {
+const BathRoomProjectPage = () => {
     const router = useRouter()
 
-    const kitchenFeatures = [
+    const bathroomFeatures = [
         {
-            title: "Custom Storage Solutions",
-            description: "Efficient storage is crucial in any kitchen, and our designs prioritize maximizing space while maintaining a sleek, organized look.",
-            image: "/image/gal15.jpeg",
+            title: "Smart Storage & Space Optimization",
+            description: "Even the smallest bathrooms can feel spacious with the right design. We incorporate smart storage solutions like floating vanities, recessed shelves, and built-in cabinets to keep the space organized without compromising style.",
+            image: "/image/bathproject.jpg",
         },
         {
-            title: "Innovative Work Zones",
-            description: "A great kitchen is all about workflow. We create distinct work zones for cooking, prep, cleaning, and storage, ensuring that each task is performed with ease and efficiency. ",
-            image: "/image/kitcat.jpg",
+            title: "Luxurious Fixtures & Finishes",
+            description: "From rainfall showers and sleek faucets to elegant tiling and custom mirrors, we use high-quality fixtures and finishes that elevate the overall feel of your bathroom. ",
+            image: "/image/gal14.jpeg",
         },
         {
-            title: "Premium Materials & Finishes",
-            description: "We use only high-quality materials for countertops, cabinetry, and backsplashes, offering both durability and style.",
-            image: "/image/kit_pro.jpg",
+            title: "Soothing Lighting & Ambience",
+            description: "Lighting can transform the mood of a bathroom. We use layered lighting — ambient, task, and accent — to create a serene, welcoming environment.",
+            image: "/image/bathroomcat.jpg",
         },
     ]
 
@@ -34,15 +34,15 @@ const KitchenProjectPage = () => {
             {/* Hero Header Section */}
             <div className="relative w-full h-[60vh]">
                 <Image
-                    src="/image/kitchen1.jpg"
+                    src="/image/bath_pro.webp"
                     alt="Kitchen Interior Design"
                     fill
                     className="object-cover brightness-75"
                     priority
                 />
                 <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white p-4">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Customized Modular Kitchen</h1>
-                    <h2 className="text-3xl md:text-5xl font-semibold text-center">Your Dream Home Deserves</h2>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Customized Bathroom</h1>
+                    <h2 className="text-3xl md:text-5xl font-semibold text-center">Designed for Relaxation and Style</h2>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@ const KitchenProjectPage = () => {
                     variants={titleVariants}
                     className="text-3xl md:text-5xl font-bold text-center mb-16"
                 >
-                    CUSTOM-MADE MODULAR KITCHEN
+                    CUSTOM-MADE BATHROOM
                 </motion.h2>
 
                 <div className="max-w-4xl mx-auto">
@@ -72,7 +72,8 @@ const KitchenProjectPage = () => {
                         variants={desVariants}
                         className="text-lg mb-8 leading-relaxed"
                     >
-                        The kitchen is the heart of the home, where flavors are crafted, memories are made, and family comes together. Our kitchen designs focus on blending practicality with elegance, creating spaces that are not only functional but also inspiring. Whether you’re an avid cook or someone who enjoys simple meals, we design kitchens that cater to your needs, with carefully chosen layouts, storage solutions, and materials.
+                        The bathroom is more than just a functional space — it’s your personal sanctuary for relaxation and rejuvenation. 
+                        Our bathroom designs focus on creating serene, spa-like environments that offer both comfort and sophistication. Whether it’s a sleek modern layout or a more classic, timeless style, we tailor each design to reflect your taste and meet your daily routine with ease.
                     </motion.p>
 
                     <motion.p
@@ -81,8 +82,9 @@ const KitchenProjectPage = () => {
                         variants={desVariants}
                         className="text-lg mb-12 leading-relaxed"
                     >
-                        A well-designed kitchen goes beyond just countertops and cabinets; it’s about creating a space where cooking feels effortless and enjoyable. We understand that a modern kitchen should have the right balance of style, technology, and comfort. From contemporary modular kitchens to traditional styles, we offer a wide range of designs to suit your preferences.
-                        Below are just a few examples of our kitchen interior designing and furnishing works in Kolkata, West Bengal, India.
+                        Whether you’re updating a compact ensuite or designing a luxurious master bath, our team brings expertise and creativity to every project. 
+                        Explore just a few examples of our bathroom interior designing and furnishing works in Kolkata, West Bengal, India — 
+                        and discover how we can transform your bathroom into a space you’ll love to begin and end your day in.
                         </motion.p>
                 </div>
 
@@ -94,11 +96,11 @@ const KitchenProjectPage = () => {
                         variants={titleVariants}
                         className="text-2xl md:text-4xl font-bold text-center mb-12"
                     >
-                        Our Kitchen Design Features
+                        Our Bathroom Design Features
                     </motion.h3>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        {kitchenFeatures.map((feature, index) => (
+                        {bathroomFeatures.map((feature, index) => (
                             <motion.div
                                 key={index}
                                 initial="offscreen"
@@ -131,7 +133,7 @@ const KitchenProjectPage = () => {
                         variants={titleVariants}
                         className="text-2xl md:text-3xl font-bold mb-6"
                     >
-                        Ready to Transform Your Kitchen?
+                        Ready to Transform Your Bathroom?
                     </motion.h3>
                     <motion.p
                         initial="offscreen"
@@ -139,8 +141,8 @@ const KitchenProjectPage = () => {
                         variants={desVariants}
                         className="mb-8 max-w-2xl mx-auto"
                     >
-                        Let’s create a kitchen that seamlessly blends your style with functionality. Our team of expert designers is ready to transform your 
-                        culinary space, tailoring every detail to suit your needs and elevate your cooking experience.
+                        Let’s create a bathroom that blends functionality with relaxation. Our team of expert designers is ready to transform your space into a serene 
+                        retreat, customizing every detail to match your style and elevate your daily routines with comfort and elegance.
                     </motion.p>
                     <Button
                         size="lg"
@@ -180,4 +182,4 @@ const KitchenProjectPage = () => {
     )
 }
 
-export default KitchenProjectPage
+export default BathRoomProjectPage

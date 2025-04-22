@@ -62,7 +62,7 @@ const BedroomProjectPage = () => {
                     variants={titleVariants}
                     className="text-3xl md:text-5xl font-bold text-center mb-16"
                 >
-                    Bedroom Design Excellence
+                    BEDROOM DESIGN EXCELLENCE
                 </motion.h2>
 
                 <div className="max-w-4xl mx-auto">
@@ -83,7 +83,11 @@ const BedroomProjectPage = () => {
                         variants={desVariants}
                         className="text-lg mb-12 leading-relaxed"
                     >
-                        A large portion of anyone’s life is spent in a bedroom, as the best place to relieve anxieties, worries, and hurries. Family feels secure and free in this room and thus it needs the best ambiance, facilities, and provisions. Bedroom furniture like cot, side tables, wardrobes and dressing table mostly occupies almost all the space in a normal bedroom. In order to maintain bedroom excellence, it is important to choose bedroom furniture in matches the style with your bedroom interior design. This is where you can use the expertise of top interior designers. They can make and provide the bedroom furniture in perfect size to fit the space. Come to Vinayak Interio and explore the options for custom-made bedroom furniture to create the most comfortable bedroom. Below are just a few samples of our bedroom interior designing and furnishing works in Kolkata, West Bengal, India.
+                        A large portion of anyone’s life is spent in a bedroom, as the best place to relieve anxieties, worries, and hurries. Family feels secure and free in this room and thus it needs the best 
+                        ambiance, facilities, and provisions. Bedroom furniture like cot, side tables, wardrobes and dressing table mostly occupies almost all the space in a normal bedroom. 
+                        In order to maintain bedroom excellence, it is important to choose bedroom furniture in matches the style with your bedroom interior design. This is where you can use the expertise of top interior designers. 
+                        They can make and provide the bedroom furniture in perfect size to fit the space. Come to <b>Vinayak Interio</b>  and explore the options for custom-made bedroom furniture to create the most comfortable bedroom. 
+                        Below are just a few samples of our bedroom interior designing and furnishing works in Kolkata, West Bengal, India.
                     </motion.p>
                 </div>
 

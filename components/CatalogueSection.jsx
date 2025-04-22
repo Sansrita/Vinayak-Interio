@@ -22,11 +22,11 @@ export default function CatalogueSection() {
     },
     {
       id: "03",
-      category: "DRAWING ROOM SETUP",
-      title: "Family Drawing Room Setup",
+      category: "LIVING ROOM SETUP",
+      title: "Family Living Room Setup",
       image: "/image/living.jpg",
-      description: "Family drawing room with a clean and comfortable design for your family.",
-      link: "/projects",
+      description: "Family living room with a clean and comfortable design for your family.",
+      link: "/projects/drawingroom",
     },
     {
       id: "04",

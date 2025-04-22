@@ -18,7 +18,7 @@ export default function CatalogueSection() {
       title: "Neat & Clean Kitchen Setup",
       image: "/image/kitcat.jpg",
       description: "Modern kitchen with a clean and functional design for your family.",
-      link: "/projects",
+      link: "/projects/kitchen",
     },
     {
       id: "03",

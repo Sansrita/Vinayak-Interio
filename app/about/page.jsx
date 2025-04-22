@@ -36,7 +36,7 @@ const Page = () => {
             initial="offscreen"
             whileInView={"onscreen"}
             variants={desVariants}
-            className="text-2xl text-center font-medium pb-10 mt-5"
+            className="text-2xl text-center font-medium pb-10 mt-5 "
           >
             Our Interior design company is a company that provides interior design services for homes, offices,
             apartments and others. We provide the best interior design services for you. We have a team that is
@@ -70,14 +70,9 @@ const Page = () => {
                 Vinayak Interio started with commercial space and residential furnishing in 2017 at Kolkata, as its main
                 office.
               </p>
-              <div className="mt-8">
-                <Button
-                  onClick={() => router.push("/contact")}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-md font-medium"
-                >
-                  Discuss Your Requirements
-                </Button>
-              </div>
+              <p>Your space should tell your story. We craft interiors that mirror your personality, lifestyle, and taste — creating a home that feels authentically you in every detail.
+              </p>
+
             </motion.div>
           </div>
         </div>

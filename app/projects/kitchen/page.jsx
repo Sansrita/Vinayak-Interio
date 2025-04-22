@@ -8,24 +8,24 @@ import { desVariants, titleVariants } from "@/utils/animation"
 import { ArrowLeft } from "lucide-react"
 import { Phone, Mail } from "lucide-react"
 
-const BedroomProjectPage = () => {
+const KitchenProjectPage = () => {
     const router = useRouter()
 
     const bedroomFeatures = [
         {
-            title: "Custom Bed Frames",
-            description: "Handcrafted bed frames tailored to your room dimensions and aesthetic preferences.",
-            image: "/image/bed_pro.jpg",
+            title: "Custom Storage Solutions",
+            description: "Efficient storage is crucial in any kitchen, and our designs prioritize maximizing space while maintaining a sleek, organized look.",
+            image: "/image/gal15.jpeg",
         },
         {
-            title: "Dreamy vibes, every night",
-            description: "Step into a bedroom that blends elegance and comfort effortlessly.",
-            image: "/image/bedroomcat.jpg",
+            title: "Innovative Work Zones",
+            description: "A great kitchen is all about workflow. We create distinct work zones for cooking, prep, cleaning, and storage, ensuring that each task is performed with ease and efficiency. ",
+            image: "/image/kitcat.jpg",
         },
         {
-            title: "Minimal, magical, and made for you",
-            description: "A clean, uncluttered space that speaks volumes through subtle details. Every element is carefully chosen to reflect your style",
-            image: "/image/gal1.jpg",
+            title: "Premium Materials & Finishes",
+            description: "We use only high-quality materials for countertops, cabinetry, and backsplashes, offering both durability and style.",
+            image: "/image/kit_pro.jpg",
         },
     ]
 
@@ -34,15 +34,15 @@ const BedroomProjectPage = () => {
             {/* Hero Header Section */}
             <div className="relative w-full h-[60vh]">
                 <Image
-                    src="/image/bed_pro.jpg"
-                    alt="Bedroom Interior Design"
+                    src="/image/kitchen1.jpg"
+                    alt="Kitchen Interior Design"
                     fill
                     className="object-cover brightness-75"
                     priority
                 />
                 <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white p-4">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Cozy Bedroom Setup</h1>
-                    <h2 className="text-3xl md:text-5xl font-semibold text-center">Where Comfort Meets Style</h2>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Customized Modular Kitchen</h1>
+                    <h2 className="text-3xl md:text-5xl font-semibold text-center">Your Dream Home Deserves</h2>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@ const BedroomProjectPage = () => {
                     variants={titleVariants}
                     className="text-3xl md:text-5xl font-bold text-center mb-16"
                 >
-                    Bedroom Design Excellence
+                    Custom-made Modular Kitchen
                 </motion.h2>
 
                 <div className="max-w-4xl mx-auto">
@@ -72,9 +72,7 @@ const BedroomProjectPage = () => {
                         variants={desVariants}
                         className="text-lg mb-8 leading-relaxed"
                     >
-                        Your bedroom is more than just a place to sleep—it's your sanctuary, your retreat from the world. Our
-                        bedroom designs focus on creating a harmonious balance between functionality and aesthetics, ensuring that
-                        every element contributes to a space that promotes rest and rejuvenation.
+                        The kitchen is the heart of the home, where flavors are crafted, memories are made, and family comes together. Our kitchen designs focus on blending practicality with elegance, creating spaces that are not only functional but also inspiring. Whether you’re an avid cook or someone who enjoys simple meals, we design kitchens that cater to your needs, with carefully chosen layouts, storage solutions, and materials.
                     </motion.p>
 
                     <motion.p
@@ -83,8 +81,9 @@ const BedroomProjectPage = () => {
                         variants={desVariants}
                         className="text-lg mb-12 leading-relaxed"
                     >
-                        A large portion of anyone’s life is spent in a bedroom, as the best place to relieve anxieties, worries, and hurries. Family feels secure and free in this room and thus it needs the best ambiance, facilities, and provisions. Bedroom furniture like cot, side tables, wardrobes and dressing table mostly occupies almost all the space in a normal bedroom. In order to maintain bedroom excellence, it is important to choose bedroom furniture in matches the style with your bedroom interior design. This is where you can use the expertise of top interior designers. They can make and provide the bedroom furniture in perfect size to fit the space. Come to Vinayak Interio and explore the options for custom-made bedroom furniture to create the most comfortable bedroom. Below are just a few samples of our bedroom interior designing and furnishing works in Kolkata, West Bengal, India.
-                    </motion.p>
+                        A well-designed kitchen goes beyond just countertops and cabinets; it’s about creating a space where cooking feels effortless and enjoyable. We understand that a modern kitchen should have the right balance of style, technology, and comfort. From contemporary modular kitchens to traditional styles, we offer a wide range of designs to suit your preferences.
+                        Below are just a few examples of our kitchen interior designing and furnishing works in Kolkata, West Bengal, India.
+                        </motion.p>
                 </div>
 
                 {/* Features Section */}
@@ -95,7 +94,7 @@ const BedroomProjectPage = () => {
                         variants={titleVariants}
                         className="text-2xl md:text-4xl font-bold text-center mb-12"
                     >
-                        Our Bedroom Design Features
+                        Our Kitchen Design Features
                     </motion.h3>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -132,7 +131,7 @@ const BedroomProjectPage = () => {
                         variants={titleVariants}
                         className="text-2xl md:text-3xl font-bold mb-6"
                     >
-                        Ready to Transform Your Bedroom?
+                        Ready to Transform Your Kitchen?
                     </motion.h3>
                     <motion.p
                         initial="offscreen"
@@ -140,8 +139,8 @@ const BedroomProjectPage = () => {
                         variants={desVariants}
                         className="mb-8 max-w-2xl mx-auto"
                     >
-                        Let's create a bedroom that perfectly reflects your style and meets your needs. Our team of expert designers
-                        is ready to bring your vision to life.
+                        Let’s create a kitchen that seamlessly blends your style with functionality. Our team of expert designers is ready to transform your 
+                        culinary space, tailoring every detail to suit your needs and elevate your cooking experience.
                     </motion.p>
                     <Button
                         size="lg"
@@ -181,4 +180,4 @@ const BedroomProjectPage = () => {
     )
 }
 
-export default BedroomProjectPage
+export default KitchenProjectPage

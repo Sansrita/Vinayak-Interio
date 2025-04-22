@@ -63,7 +63,7 @@ const Projectpage = () => {
       <CatalogueSection />
 
       <div className="py-12 flex justify-center">
-        <Link href="/contact">
+        <Link href="https://wa.me/message/A5C4GDLREM33G1">
           <Button className="inline-flex items-center px-8 py-3 text-white rounded-lg shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
             Book Now <TbArrowUpRight className="w-5 h-5 ml-2" />
           </Button>

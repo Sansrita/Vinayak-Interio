@@ -19,9 +19,9 @@ const CompanySection = () => {
         variants={titleVariants}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6"
       >
-        <Badge title="SINCE" endCountNum={2017} />
+        <Badge title="SINCE" subtitle={2017} />
         <Badge title="PREMIUM" subtitle="Materials" />
-        <Badge title="YEARS" endCountNum={10} endCountText="-15" />
+        <Badge title="YEARS" endCountNum={15} />
         <Badge title="COMPLETION" subtitle="45 Working Days" />
         <Badge title="PROJECTS" endCountNum={75} endCountText="+ Per Year" />
         <Badge title="LIFELONG" subtitle="Service Support" />

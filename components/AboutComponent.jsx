@@ -84,7 +84,7 @@ const AboutComponent = () => {
                 <path d="M14.5 17c0-1-1-2-2.5-2" />
               </svg>
             </div>
-            <div className="timeline-text">Talk to our Interior Designer<br />& Get an Estimate</div>
+            <div className="timeline-text">Project Consultation</div>
           </div>
 
           <div className="timeline-arrow">→</div>
@@ -99,7 +99,7 @@ const AboutComponent = () => {
                 <path d="M12 13.5V15" />
               </svg>
             </div>
-            <div className="timeline-text">Detailed Drawing<br />and Approval</div>
+            <div className="timeline-text">Site Inspection<br />(Chargable)</div>
           </div>
 
           <div className="timeline-arrow">→</div>
@@ -116,7 +116,7 @@ const AboutComponent = () => {
                 <path d="M15 16v4" />
               </svg>
             </div>
-            <div className="timeline-text">Production<br />Factories</div>
+            <div className="timeline-text">Detailed Interior Layout<br /> & 3D Design</div>
           </div>
 
           <div className="timeline-arrow">→</div>
@@ -131,8 +131,36 @@ const AboutComponent = () => {
                 <circle cx="18.5" cy="18.5" r="2.5" />
               </svg>
             </div>
-            <div className="timeline-text">Material Delivery<br />& Execution</div>
+            <div className="timeline-text">Walk In Video<br /> (If Require) </div>
           </div>
+
+          <div className="timeline-arrow">→</div>
+
+          {/* Step 4 */}
+          <div className="timeline-step">
+            <div className="timeline-icon glow-on-hover">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <path d="M4 4h16v16H4z" />
+                <path d="M8 12l2 2 4-4" />
+              </svg>
+            </div>
+            <div className="timeline-text">Design Approval <br /> & Project Confirmation</div>
+          </div>
+
+          <div className="timeline-arrow">→</div>
+
+          {/* Step 4 */}
+          <div className="timeline-step">
+            <div className="timeline-icon glow-on-hover">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 7 2 17 12 22 22 17 22 7" />
+                <line x1="12" y1="12" x2="12" y2="22" />
+              </svg>
+            </div>
+            <div className="timeline-text">Material Choice<br /> Delivery And Execution</div>
+          </div>
+
 
           <div className="timeline-arrow">→</div>
 
@@ -146,7 +174,7 @@ const AboutComponent = () => {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <div className="timeline-text">On Time Project<br />Hand Over</div>
+            <div className="timeline-text">(On-Time Delievery)<br /> Your Dream Home Is Ready To Move</div>
           </div>
         </div>
 

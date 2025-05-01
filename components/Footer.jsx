@@ -6,7 +6,6 @@ import { desVariants, tagVariants, titleVariants } from "@/utils/animation";
 import {
   FaInstagram,
   FaFacebookF,
-  FaLinkedinIn,
   FaTwitter,
   FaYoutube,
   FaPinterest,

@@ -66,7 +66,7 @@ const AboutComponent = () => {
   }
 
   return (
-    <div className="about-component">
+    <div className="about-component ">
       <div className="project-timeline">
         <h2 className="project-heading">
           PROJECT COMPLETION IN <span className="purple-text">45 WORKING DAYS*</span>

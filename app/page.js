@@ -4,6 +4,7 @@ import CatalogueSection from "@/components/CatalogueSection";
 import CompanySection from "@/components/CompanySection";
 import ContactSection from "@/components/ContactSection";
 import HeroSection from "@/components/HeroSection";
+import Sidebar from "@/components/Sidebar";
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <CatalogueSection />
     <CatalogSwiperSection />
     <ContactSection />
+    <Sidebar />
     </>
 
     );

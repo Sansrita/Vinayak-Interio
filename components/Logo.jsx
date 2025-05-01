@@ -1,5 +1,5 @@
 import Link from "next/link";
-import logo from "../public/03.svg";
+import logo from "../public/img_finlog.png";
 import Image from "next/image";
 
 const Logo = () => {

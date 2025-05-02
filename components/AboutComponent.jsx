@@ -29,44 +29,46 @@ const AboutComponent = () => {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: "sansritasaha@gmail.com",
-          subject: "New Design Consultation Request",
-          formData,
-        }),
+      // Format the message for WhatsApp
+      const message = `*New Design Consultation Request*\n\n*Name:* ${formData.name}\n*Contact Number:* ${formData.contactNumber}\n*Email:* ${formData.email}\n*Project Location:* ${formData.projectLocation}`
+
+      // Make sure the URL is properly formatted to include the message
+      // If abc.whatsapp.com is a custom domain, ensure it has the proper protocol and query parameter format
+      const whatsappURL = `https://wa.me/message/A5C4GDLREM33G1?text=${encodeURIComponent(message)}`
+
+      // Open WhatsApp in a new tab
+      window.open(whatsappURL, "_blank")
+
+      // Show success message
+      setSubmitSuccess(true)
+
+      // Reset form
+      setFormData({
+        name: "",
+        contactNumber: "",
+        email: "",
+        projectLocation: "",
       })
 
-      if (response.ok) {
-        setSubmitSuccess(true)
-        setFormData({
-          name: "",
-          contactNumber: "",
-          email: "",
-          projectLocation: "",
-        })
-
-        setTimeout(() => {
-          closeModal()
-          setSubmitSuccess(false)
-        }, 3000)
-      }
+      // Close modal after delay
+      setTimeout(() => {
+        closeModal()
+        setSubmitSuccess(false)
+      }, 3000)
     } catch (error) {
-      console.error("Error submitting form:", error)
+      console.error("Error opening WhatsApp:", error)
     } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
-    <div className="about-component ">
+    <div className="about-component">
       <div className="project-timeline">
         <h2 className="project-heading">
           PROJECT COMPLETION IN <span className="purple-text">45 WORKING DAYS*</span>
@@ -99,7 +101,11 @@ const AboutComponent = () => {
                 <path d="M12 13.5V15" />
               </svg>
             </div>
-            <div className="timeline-text">Site Inspection<br />(Chargable)</div>
+            <div className="timeline-text">
+              Site Inspection
+              <br />
+              (Chargable)
+            </div>
           </div>
 
           <div className="timeline-arrow">→</div>
@@ -116,7 +122,10 @@ const AboutComponent = () => {
                 <path d="M15 16v4" />
               </svg>
             </div>
-            <div className="timeline-text">Detailed Interior Layout<br /> & 3D Design</div>
+            <div className="timeline-text">
+              Detailed Interior Layout
+              <br /> & 3D Design
+            </div>
           </div>
 
           <div className="timeline-arrow">→</div>
@@ -131,12 +140,15 @@ const AboutComponent = () => {
                 <circle cx="18.5" cy="18.5" r="2.5" />
               </svg>
             </div>
-            <div className="timeline-text">Walk In Video<br /> (If Require) </div>
+            <div className="timeline-text">
+              Walk In Video
+              <br /> (If Require){" "}
+            </div>
           </div>
 
           <div className="timeline-arrow">→</div>
 
-          {/* Step 4 */}
+          {/* Step 5 */}
           <div className="timeline-step">
             <div className="timeline-icon glow-on-hover">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -144,12 +156,14 @@ const AboutComponent = () => {
                 <path d="M8 12l2 2 4-4" />
               </svg>
             </div>
-            <div className="timeline-text">Design Approval <br /> & Project Confirmation</div>
+            <div className="timeline-text">
+              Design Approval <br /> & Project Confirmation
+            </div>
           </div>
 
           <div className="timeline-arrow">→</div>
 
-          {/* Step 4 */}
+          {/* Step 6 */}
           <div className="timeline-step">
             <div className="timeline-icon glow-on-hover">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -158,13 +172,15 @@ const AboutComponent = () => {
                 <line x1="12" y1="12" x2="12" y2="22" />
               </svg>
             </div>
-            <div className="timeline-text">Material Choice<br /> Delivery And Execution</div>
+            <div className="timeline-text">
+              Material Choice
+              <br /> Delivery And Execution
+            </div>
           </div>
-
 
           <div className="timeline-arrow">→</div>
 
-          {/* Step 5 */}
+          {/* Step 7 */}
           <div className="timeline-step">
             <div className="timeline-icon glow-on-hover">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -174,11 +190,17 @@ const AboutComponent = () => {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <div className="timeline-text">(On-Time Delievery)<br /> Your Dream Home Is Ready To Move</div>
+            <div className="timeline-text">
+              (On-Time Delievery)
+              <br /> Your Dream Home Is Ready To Move
+            </div>
           </div>
         </div>
 
-        <button className="consultant-button text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2" onClick={openModal}>
+        <button
+          className="consultant-button text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2"
+          onClick={openModal}
+        >
           Talk to Our Design Consultant
         </button>
       </div>
@@ -188,30 +210,62 @@ const AboutComponent = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h3>Talk to Our Design Consultant</h3>
-              <button className="close-button" onClick={closeModal}>×</button>
+              <button className="close-button" onClick={closeModal}>
+                ×
+              </button>
             </div>
 
             <div className="modal-body">
               {submitSuccess ? (
                 <div className="success-message">
-                  Thank you for your enquiry! We will get back to you as soon as possible.
+                  Thank you for your enquiry! Redirecting you to WhatsApp to connect with our design consultant.
                 </div>
               ) : (
                 <>
                   <p>Please fill out the enquiry below and we will get back to you as soon as possible</p>
                   <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                      <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" required />
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Name"
+                        required
+                      />
                     </div>
                     <div className="form-group phone-input">
-                      <div className="country-code"><span>+91</span></div>
-                      <input type="tel" name="contactNumber" value={formData.contactNumber} onChange={handleChange} placeholder="Contact Number" required />
+                      <div className="country-code">
+                        <span>+91</span>
+                      </div>
+                      <input
+                        type="tel"
+                        name="contactNumber"
+                        value={formData.contactNumber}
+                        onChange={handleChange}
+                        placeholder="Contact Number"
+                        required
+                      />
                     </div>
                     <div className="form-group">
-                      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" required />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email Address"
+                        required
+                      />
                     </div>
                     <div className="form-group">
-                      <input type="text" name="projectLocation" value={formData.projectLocation} onChange={handleChange} placeholder="Project Location" required />
+                      <input
+                        type="text"
+                        name="projectLocation"
+                        value={formData.projectLocation}
+                        onChange={handleChange}
+                        placeholder="Project Location"
+                        required
+                      />
                     </div>
                     <button type="submit" className="submit-button" disabled={isSubmitting}>
                       {isSubmitting ? "Submitting..." : "Submit"}

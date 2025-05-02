@@ -3,7 +3,7 @@ import { TbArrowRight } from "react-icons/tb";
 import { Button } from "./ui/button";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { useState } from "react";
 // Import Swiper styles
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
@@ -14,6 +14,70 @@ import { desVariants, tagVariants } from "@/utils/animation";
 import { titleVariants } from "@/utils/animation";
 
 export default function CatalogSwiperSection() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false)
+      const [formData, setFormData] = useState({
+        name: "",
+        contactNumber: "",
+        email: "",
+        projectLocation: "",
+      })
+      const [isSubmitting, setIsSubmitting] = useState(false)
+      const [submitSuccess, setSubmitSuccess] = useState(false)
+    
+      const openModal = () => {
+        setIsModalOpen(true)
+        document.body.style.overflow = "hidden"
+      }
+    
+      const closeModal = () => {
+        setIsModalOpen(false)
+        document.body.style.overflow = "auto"
+      }
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
+      }
+    
+      const handleSubmit = (e) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+    
+        try {
+          // Format the message for WhatsApp
+          const message = `*New Design Consultation Request*\n\n*Name:* ${formData.name}\n*Contact Number:* ${formData.contactNumber}\n*Email:* ${formData.email}\n*Project Location:* ${formData.projectLocation}`
+    
+          // Make sure the URL is properly formatted to include the message
+          // If abc.whatsapp.com is a custom domain, ensure it has the proper protocol and query parameter format
+          const whatsappURL = `https://wa.me/message/A5C4GDLREM33G1?text=${encodeURIComponent(message)}`
+    
+          // Open WhatsApp in a new tab
+          window.open(whatsappURL, "_blank")
+    
+          // Show success message
+          setSubmitSuccess(true)
+    
+          // Reset form
+          setFormData({
+            name: "",
+            contactNumber: "",
+            email: "",
+            projectLocation: "",
+          })
+    
+          // Close modal after delay
+          setTimeout(() => {
+            closeModal()
+            setSubmitSuccess(false)
+          }, 3000)
+        } catch (error) {
+          console.error("Error opening WhatsApp:", error)
+        } finally {
+          setIsSubmitting(false)
+        }
+      }
+
     return (
         <div className="py-5 lg:py-28 px-4 lg:px-8">
             <div className="container grid pb-8 lg:grid-cols-1">
@@ -85,6 +149,87 @@ export default function CatalogSwiperSection() {
                 </SwiperSlide>
             </Swiper>
 
+            <button
+          className="consultant-button text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2"
+          onClick={openModal}
+        >
+          Get Your Quote in 24 hrs
+        </button>
+
+        {isModalOpen && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h3>Talk to Our Design Consultant</h3>
+              <button className="close-button" onClick={closeModal}>
+                ×
+              </button>
+            </div>
+
+            <div className="modal-body">
+              {submitSuccess ? (
+                <div className="success-message">
+                  Thank you for your enquiry! Redirecting you to WhatsApp to connect with our design consultant.
+                </div>
+              ) : (
+                <>
+                  <p>Please fill out the enquiry below and we will get back to you as soon as possible</p>
+                  <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Name"
+                        required
+                      />
+                    </div>
+                    <div className="form-group phone-input">
+                      <div className="country-code">
+                        <span>+91</span>
+                      </div>
+                      <input
+                        type="tel"
+                        name="contactNumber"
+                        value={formData.contactNumber}
+                        onChange={handleChange}
+                        placeholder="Contact Number"
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email Address"
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="projectLocation"
+                        value={formData.projectLocation}
+                        onChange={handleChange}
+                        placeholder="Project Location"
+                        required
+                      />
+                    </div>
+                    <button type="submit" className="submit-button" disabled={isSubmitting}>
+                      {isSubmitting ? "Submitting..." : "Submit"}
+                    </button>
+                  </form>
+                </>
+              )}
+            </div>
+          </div>
         </div>
+      )}
+        </div>
+
+        
     )
 }

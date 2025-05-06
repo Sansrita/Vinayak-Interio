@@ -97,7 +97,8 @@ export default function Footer() {
           </div>
           <div>
             <Link className="p-4 hover:underline" href="/privacy">Policies</Link>
-            <Link className="p-4 hover:underline" href="/">Terms and Conditions</Link>
+            <Link className="p-4 hover:underline" href="/terms">Terms and Conditions</Link>
+            <Link className="p-4 hover:underline" href="/cookies">Cookies</Link>
           </div>
         </div>
       </motion.div>

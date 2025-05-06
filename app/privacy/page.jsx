@@ -153,7 +153,7 @@ export default function PrivacyPolicy() {
       <h3 className="text-xl font-semibold mt-4">(b)</h3>
       <p>
         For more information, please refer to our{" "}
-        <a href="https://www..com/in/service/service-cookie-policy" className="text-blue-400 underline" target="_blank">
+        <a href="/cookies" className="text-blue-400 underline" target="_blank">
           Cookie Policy
         </a>.
       </p>

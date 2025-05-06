@@ -96,7 +96,7 @@ export default function Footer() {
             <p>&copy; 2025 Vinayak Interio. All Rights Reserved</p>
           </div>
           <div>
-            <Link className="p-4 hover:underline" href="/">Policies</Link>
+            <Link className="p-4 hover:underline" href="/privacy">Policies</Link>
             <Link className="p-4 hover:underline" href="/">Terms and Conditions</Link>
           </div>
         </div>

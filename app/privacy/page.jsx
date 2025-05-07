@@ -1,10 +1,42 @@
 "use client";
 
 import Sidebar from "@/components/Sidebar";
+import Link from "next/link";
 
 export default function PrivacyPolicy() {
     return (
-      <main className="p-6 max-w-4xl mx-auto text-white bg-black">
+      <div className="min-h-screen flex flex-col">
+        <main className="p-6 max-w-4xl mx-auto text-white bg-black">
+        <div className="border-b">
+                <div className="container mx-auto px-4">
+                    <div className="flex items-center justify-between">
+                        <nav className="flex items-center space-x-6 py-4">
+                            <Link href="/about" className="text-sm font-medium">
+                                
+                            </Link>
+                            <Link href="/privacy" className="text-sm font-medium">
+                                
+                            </Link>
+                            <Link href="/terms" className="text-sm font-medium">
+                                
+                            </Link>
+                        </nav>
+                        <div>
+                            <a
+                                href="https://wa.me/message/A5C4GDLREM33G1" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <button className="inline-flex items-center px-8 py-3 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
+                                    GET YOUR QUOTE IN 24hrs
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         <h1 className="text-3xl font-bold mb-4"> Privacy Policy</h1>
         <p>
           Welcome to Vinayak Interio’s privacy policy (referred to as “Policy”).
@@ -184,6 +216,8 @@ export default function PrivacyPolicy() {
 
       <Sidebar />
       </main>
+      </div>
+      
 
       
     );

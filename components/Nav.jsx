@@ -84,6 +84,19 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, mobileView = false 
           </Link>
         ))}
       </div>
+
+      <form onSubmit={handleSearch} className="relative">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="border border-white bg-transparent text-white px-3 py-1 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white placeholder:text-white"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black">
+          🔍
+        </button>
+      </form>
     </nav>
   )
 }

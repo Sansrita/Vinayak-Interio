@@ -1,4 +1,3 @@
-// Nav.jsx
 "use client"
 
 import Link from "next/link"
@@ -46,57 +45,73 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, mobileView = false 
     }
   }
 
-  const reorderedLinks = ["home", "about", "projects", "gallery", "contact"].map(name =>
-    links.find(link => link.name === name)
+  const reorderedLinks = ["home", "about", "projects", "gallery", "contact"].map((name) =>
+    links.find((link) => link.name === name),
+  )
+
+  // Search form component to avoid duplication
+  const SearchForm = ({ className }) => (
+    <form onSubmit={handleSearch} className={className}>
+      <input
+        type="text"
+        placeholder="Search..."
+        className="border border-white bg-transparent text-white px-3 py-1 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white placeholder:text-white"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-white">
+        🔍
+      </button>
+    </form>
   )
 
   return (
-    <nav className={`${containerStyles} ${mobileView ? "gap-4" : "pr-10 flex items-center gap-4"}`}>
-      
-      {mobileView && (
-        <form onSubmit={handleSearch} className="relative w-full px-4">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="border border-white bg-transparent text-white w-full px-3 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white placeholder:text-white"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit" className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-600 hover:text-white">
-            🔍
-          </button>
-        </form>
+    <nav className={`${containerStyles} ${mobileView ? "gap-4" : "flex items-center justify-between"}`}>
+      {/* Mobile View */}
+      {mobileView ? (
+        <>
+          <SearchForm className="relative w-full px-4" />
+
+          <div className="flex flex-col items-center w-full gap-3 mt-4">
+            {reorderedLinks.map((link, index) => (
+              <Link href={link.path} key={index} className={`uppercase relative ${linkStyles}`}>
+                {link.path === path && (
+                  <motion.span
+                    initial={{ y: "-100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ type: "tween" }}
+                    layoutId="underline"
+                    className={`${underlineStyles} absolute left-0 right-0 h-[2px] bg-black bottom-0`}
+                  />
+                )}
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </>
+      ) : (
+        /* Desktop View */
+        <>
+          <div className="flex gap-6">
+            {links.map((link, index) => (
+              <Link href={link.path} key={index} className={`uppercase relative ${linkStyles}`}>
+                {link.path === path && (
+                  <motion.span
+                    initial={{ y: "-100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ type: "tween" }}
+                    layoutId="underline"
+                    className={`${underlineStyles} absolute left-0 right-0 h-[2px] bg-black bottom-0`}
+                  />
+                )}
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          <SearchForm className="relative" />
+        </>
       )}
-
-      <div className={`${mobileView ? "flex flex-col items-center w-full gap-3 mt-4" : "flex gap-6"}`}>
-        {(mobileView ? reorderedLinks : links).map((link, index) => (
-          <Link href={link.path} key={index} className={`uppercase relative ${linkStyles}`}>
-            {link.path === path && (
-              <motion.span
-                initial={{ y: "-100%" }}
-                animate={{ y: 0 }}
-                transition={{ type: "tween" }}
-                layoutId="underline"
-                className={`${underlineStyles} absolute left-0 right-0 h-[2px] bg-black bottom-0`}
-              />
-            )}
-            {link.name}
-          </Link>
-        ))}
-      </div>
-
-      <form onSubmit={handleSearch} className="relative">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="border border-white bg-transparent text-white px-3 py-1 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white placeholder:text-white"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black">
-          🔍
-        </button>
-      </form>
     </nav>
   )
 }

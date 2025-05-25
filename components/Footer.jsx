@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Company Links */}
          
-        {/* <motion.div
+         <motion.div
             initial="offscreen"
             whileInView="onscreen"
             variants={titleVariants}
@@ -33,7 +33,7 @@ export default function Footer() {
               <Link href="/gallery" className="hover:underline">Gallery</Link>
               <Link href="/contact" className="hover:underline">Contact Us</Link>
             </div>
-          </motion.div>   */} 
+          </motion.div>   
 
           {/* Connect + WhatsApp */}
           <motion.div
@@ -84,7 +84,7 @@ export default function Footer() {
       </div>
 
 
-      {/* Copyright 
+       Copyright 
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
@@ -101,7 +101,7 @@ export default function Footer() {
             <Link className="p-4 hover:underline" href="/cookies">Cookies</Link>
           </div>
         </div>
-      </motion.div> */}
+      </motion.div> 
     </div>
   );
 }

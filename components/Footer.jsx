@@ -84,7 +84,7 @@ export default function Footer() {
       </div>
 
 
-       Copyright 
+       
       <motion.div
         initial="offscreen"
         whileInView="onscreen"

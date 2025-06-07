@@ -7,8 +7,8 @@ const Logo = () => {
     <Link href= '/'>
         <Image
         src = {logo}
-        width={120}
-        height={20}
+        width={160}
+        height={30}
         alt="Logo"
         
         />

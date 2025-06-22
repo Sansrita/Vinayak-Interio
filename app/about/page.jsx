@@ -44,7 +44,6 @@ const Page = () => {
             experienced in the field of interior.
           </motion.p>
         </div>
-
         <div className="items-center lg:flex gap-x-8 px-4 lg:px-20 xl:px-32 mb-12">
           {/* Left Image Section */}
           <div className="w-full pb-16 h-[500px] relative">
@@ -74,63 +73,6 @@ const Page = () => {
               <p>Your space should tell your story. We craft interiors that mirror your personality, lifestyle, and taste — creating a home that feels authentically you in every detail.
               </p>
 
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Office Section with Google Map */}
-      <div className="container mb-16">
-        <motion.h2
-          initial="offscreen"
-          whileInView={"onscreen"}
-          variants={titleVariants}
-          className="text-3xl md:text-4xl font-bold mb-8 text-center"
-        >
-          Our Office
-        </motion.h2>
-
-        <div className="px-4 lg:px-20 xl:px-32">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Map */}
-            <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                src={mapUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Google Map of Vinayak Interio Office"
-              ></iframe>
-            </div>
-
-            {/* Address Details */}
-            <motion.div
-              initial="offscreen"
-              whileInView={"onscreen"}
-              variants={desVariants}
-              className=" p-6 rounded-xl shadow-md"
-            >
-              <h3 className="text-2xl font-semibold mb-4">Visit Us</h3>
-              <div className="flex items-start gap-3 mb-4">
-                <MapPin className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
-                <p className="text-lg">{officeAddress}</p>
-              </div>
-              <div className="mt-6">
-                <h4 className="text-xl font-medium mb-3">Working Hours</h4>
-                <p className="mb-2">Monday - Saturday: 10:00 AM - 7:00 PM</p>
-                <p>Sunday: Closed</p>
-              </div>
-              <div className="mt-8">
-                <Button
-                  onClick={() => router.push("/contact")}
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-md font-medium"
-                >
-                  Get Directions
-                </Button>
-              </div>
             </motion.div>
           </div>
         </div>

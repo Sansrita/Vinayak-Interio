@@ -9,7 +9,7 @@ const CompanySection = () => {
     <main className="container mx-auto px-4 py-10 sm:py-12">
       {/* Heading */}
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-16 leading-snug">
-        PROFESSIONAL HOME INTERIOR DESIGN COMPANY
+        WHY CHOOSE US? 
       </h2>
 
       {/* Features */}

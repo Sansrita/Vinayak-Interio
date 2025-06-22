@@ -10,7 +10,7 @@ import Sidebar from "@/components/Sidebar"
 
 const ContactPage = () => {
   const router = useRouter()
-  const officeAddress = "B/43/H/19/73, Ardehendu Sekhar Naskar Sarani, Beleghata, Kolkata-700010, West Bengal, India"
+  const officeAddress = "B/43/H/19/73, A. S. N. Sarani, Beleghata, Kolkata-700010, West Bengal, India"
   const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(officeAddress)}`
 
   const handleChange = (e) => {
@@ -34,8 +34,8 @@ const ContactPage = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white p-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">LEADING INTERIOR</h1>
-          <h2 className="text-3xl md:text-5xl font-semibold text-center">Design Company in Kolkata</h2>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Your perfect space </h1>
+          <h2 className="text-3xl md:text-5xl font-semibold text-center">is just a contact away</h2>
         </div>
       </div>
 
@@ -45,9 +45,9 @@ const ContactPage = () => {
           initial="offscreen"
           whileInView={"onscreen"}
           variants={titleVariants}
-          className="text-3xl md:text-5xl font-bold text-center mb-16"
+          className="text-2xl md:text-xl font-bold text-center mb-16"
         >
-          Contact The Best Home Interior Designers
+          Let’s bring your dream space to life. Whether you're starting from scratch or looking to refresh your space, we’re here to help 
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -77,7 +77,7 @@ const ContactPage = () => {
               variants={desVariants}
               className=" rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Our Office</h3>
+              <h3 className="text-2xl font-semibold mb-6">Studio Address: </h3>
               <div className="flex items-start gap-3 mb-4">
                 <MapPin className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                 <p className="text-lg">{officeAddress}</p>
@@ -99,7 +99,7 @@ const ContactPage = () => {
               variants={desVariants}
               className=" rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Connect With Us</h3>
+              <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
               <div className="grid grid-cols-2 gap-4">
                 <a
                   href="https://wa.me/message/A5C4GDLREM33G1"
@@ -149,14 +149,18 @@ const ContactPage = () => {
               variants={desVariants}
               className="rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Working Hours</h3>
+              <h3 className="text-2xl font-semibold mb-6">Business Hours</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span>Monday - Saturday</span>
-                  <span>10:00 AM - 7:00 PM</span>
+                  <span>Monday–Friday: </span>
+                  <span>10:00 AM – 9:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sunday</span>
+                  <span>Saturday: </span>
+                  <span>10:00 AM – 4:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Sunday: </span>
                   <span>Closed</span>
                 </div>
               </div>

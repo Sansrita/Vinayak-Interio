@@ -8,13 +8,13 @@ import { useState } from "react"
 const links = [
   { path: "/", name: "home" },
   { path: "/about", name: "about" },
-  { path: "/projects", name: "projects" },
+  
   {
     path: "/gallery",
     name: "gallery",
     dropdown: [
       { path: "/gallery", name: "Real time execution" },
-      { path: "/gallery/project-concept", name: "Project Concept" },
+      { path: "/projects", name: "Project Concept" },
     ],
   },
   { path: "/contact", name: "contact" },

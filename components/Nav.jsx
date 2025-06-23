@@ -8,7 +8,6 @@ import { useState } from "react"
 const links = [
   { path: "/", name: "home" },
   { path: "/about", name: "about" },
-  
   {
     path: "/gallery",
     name: "gallery",
@@ -53,9 +52,10 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, mobileView = false 
     }
   }
 
-  const reorderedLinks = ["home", "about", "projects", "gallery", "contact"].map((name) =>
-    links.find((link) => link.name === name),
-  )
+  // Fixed: Only include links that actually exist and filter out undefined values
+  const reorderedLinks = ["home", "about", "gallery", "contact"]
+    .map((name) => links.find((link) => link.name === name))
+    .filter(Boolean) // Remove any undefined values
 
   // Search form component to avoid duplication
   const SearchForm = ({ className }) => (
@@ -108,15 +108,61 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, mobileView = false 
           <SearchForm className="relative w-full px-4" />
 
           <div className="flex flex-col items-center w-full gap-3 mt-4">
-            {reorderedLinks.map((link, index) => (
-              <div key={index} className="relative">
-                {link.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
-                      className={`uppercase relative ${linkStyles} flex items-center gap-1`}
-                    >
-                      {(link.path === path || link.dropdown.some((item) => item.path === path)) && (
+            {reorderedLinks.map((link, index) => {
+              // Additional safety check to ensure link exists
+              if (!link) return null
+
+              return (
+                <div key={index} className="relative">
+                  {link.dropdown ? (
+                    <>
+                      <button
+                        onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                        className={`uppercase relative ${linkStyles} flex items-center gap-1`}
+                      >
+                        {(link.path === path || link.dropdown.some((item) => item.path === path)) && (
+                          <motion.span
+                            initial={{ y: "-100%" }}
+                            animate={{ y: 0 }}
+                            transition={{ type: "tween" }}
+                            layoutId="underline"
+                            className={`${underlineStyles} absolute left-0 right-0 h-[2px] bg-black bottom-0`}
+                          />
+                        )}
+                        {link.name}
+                        <span
+                          className={`transition-transform duration-200 ${activeDropdown === link.name ? "rotate-180" : ""}`}
+                        >
+                          ▼
+                        </span>
+                      </button>
+
+                      <AnimatePresence>
+                        {activeDropdown === link.name && (
+                          <motion.div
+                            variants={dropdownVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            className="mt-2 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden min-w-[200px]"
+                          >
+                            {link.dropdown.map((item, dropIndex) => (
+                              <Link
+                                key={dropIndex}
+                                href={item.path}
+                                className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors duration-200 text-sm"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link href={link.path} className={`uppercase relative ${linkStyles}`}>
+                      {link.path === path && (
                         <motion.span
                           initial={{ y: "-100%" }}
                           animate={{ y: 0 }}
@@ -126,52 +172,11 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, mobileView = false 
                         />
                       )}
                       {link.name}
-                      <span
-                        className={`transition-transform duration-200 ${activeDropdown === link.name ? "rotate-180" : ""}`}
-                      >
-                        ▼
-                      </span>
-                    </button>
-
-                    <AnimatePresence>
-                      {activeDropdown === link.name && (
-                        <motion.div
-                          variants={dropdownVariants}
-                          initial="hidden"
-                          animate="visible"
-                          exit="exit"
-                          className="mt-2 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden min-w-[200px]"
-                        >
-                          {link.dropdown.map((item, dropIndex) => (
-                            <Link
-                              key={dropIndex}
-                              href={item.path}
-                              className="block px-4 py-3 text-gray-700 hover:bg-gray-100 transition-colors duration-200 text-sm"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <Link href={link.path} className={`uppercase relative ${linkStyles}`}>
-                    {link.path === path && (
-                      <motion.span
-                        initial={{ y: "-100%" }}
-                        animate={{ y: 0 }}
-                        transition={{ type: "tween" }}
-                        layoutId="underline"
-                        className={`${underlineStyles} absolute left-0 right-0 h-[2px] bg-black bottom-0`}
-                      />
-                    )}
-                    {link.name}
-                  </Link>
-                )}
-              </div>
-            ))}
+                    </Link>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </>
       ) : (

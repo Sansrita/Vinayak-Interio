@@ -149,12 +149,7 @@ export default function CatalogSwiperSection() {
                 </SwiperSlide>
             </Swiper>
 
-            <button
-          className="consultant-button text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2"
-          onClick={openModal}
-        >
-          Get Your Quote in 24 hrs
-        </button>
+            
 
         {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>

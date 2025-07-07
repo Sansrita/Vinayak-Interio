@@ -73,7 +73,8 @@ const AboutComponent = () => {
           "Introduction to our design process and packages",
           "Clarifying doubts and setting clear expectations",
         ],
-        footer: "This session sets the foundation for a smooth, customized, and transparent design journey.",
+        footer:
+          "This session sets the foundation for a smooth, customized, and transparent design journey.",
       },
     },
     {
@@ -91,7 +92,8 @@ const AboutComponent = () => {
           "Understand natural lighting, ventilation, and utilities",
           "Capture photos and notes for design planning",
         ],
-        footer: "This detailed inspection forms the backbone of a well-executed interior project.",
+        footer:
+          "This detailed inspection forms the backbone of a well-executed interior project.",
       },
     },
     {
@@ -140,7 +142,8 @@ const AboutComponent = () => {
           "Signing of project agreement with scope, timelines & warranty terms",
           "Advance payment to initiate material procurement and execution",
         ],
-        footer: "This milestone marks the transition from planning to making your dream interior a reality.",
+        footer:
+          "This milestone marks the transition from planning to making your dream interior a reality.",
       },
     },
     {
@@ -159,7 +162,8 @@ const AboutComponent = () => {
           "Daily supervision & quality checks",
           "Client updates at every milestone",
         ],
-        footer: "We ensure timely progress, minimal disruptions, and top-quality craftsmanship—until your space is ready.",
+        footer:
+          "We ensure timely progress, minimal disruptions, and top-quality craftsmanship—until your space is ready.",
       },
     },
     {
@@ -178,13 +182,14 @@ const AboutComponent = () => {
           "Materials are finalized without delays or last-minute swaps",
           "Client support in decision-making as per project flow",
         ],
-        footer: "Note: On-time handover is subject to payments being made as per the agreed terms and timeline.",
+        footer:
+          "Note: On-time handover is subject to payments being made as per the agreed terms and timeline.",
       },
     },
   ]
 
   return (
-    <div className="bg-black text-white min-h-screen py-8 px-4">
+    <div className="bg-black text-white min-h-screen py-8 px-4 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -194,41 +199,40 @@ const AboutComponent = () => {
 
         {/* Timeline */}
         <div className="relative mb-12">
-          <div className="flex items-center justify-between overflow-x-visible overflow-y-visible pb-4 flex-wrap">
+          <div className="flex flex-wrap justify-center gap-6 w-full">
             {timelineSteps.map((step, index) => (
-              <div key={index} className="flex items-center flex-shrink-0 relative">
-                <div className="flex flex-col items-center text-center min-w-[140px] px-2">
-                  <div className="relative group">
-                    <div className="w-20 h-20 rounded-full border-2 border-gray-300 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-yellow-500 group-hover:border-yellow-500 group-hover:text-black group-hover:shadow-lg group-hover:shadow-yellow-500/50 bg-transparent cursor-pointer">
-                      <step.icon className="w-8 h-8" />
+              <div key={index} className="flex flex-col items-center text-center relative group w-36 sm:w-40">
+                <div className="w-20 h-20 rounded-full border-2 border-gray-300 flex items-center justify-center mb-2 transition-all duration-300 group-hover:bg-yellow-500 group-hover:border-yellow-500 group-hover:text-black group-hover:shadow-lg group-hover:shadow-yellow-500/50 bg-transparent cursor-pointer">
+                  <step.icon className="w-8 h-8" />
+                </div>
+                <div className="text-sm leading-tight mb-2">{step.title}</div>
+
+                {/* Tooltip */}
+                {step.hasTooltip && (
+                  <div className="absolute z-30 hidden group-hover:block top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 text-left bg-gray-900 border border-gray-700 rounded-lg p-4 shadow-xl">
+                    <div className="text-yellow-500 font-semibold text-sm mb-2">
+                      {step.tooltipContent?.subtitle}
                     </div>
-                    {step.hasTooltip && (
-                      <div className="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none w-[320px]">
-                        <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 shadow-xl text-left">
-                          <div className="text-yellow-500 font-semibold text-sm mb-2">
-                            {step.tooltipContent?.subtitle}
-                          </div>
-                          <div className="text-gray-300 text-xs mb-3 leading-relaxed">
-                            {step.tooltipContent?.description}
-                          </div>
-                          <div className="text-xs mb-3">
-                            <div className="text-white font-medium mb-2">What to expect:</div>
-                            {step.tooltipContent?.expectations.map((expectation, idx) => (
-                              <div key={idx} className="flex items-start mb-1 text-gray-300">
-                                <span className="text-green-400 mr-2 flex-shrink-0">✅</span>
-                                <span>{expectation}</span>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="text-gray-400 text-xs italic">{step.tooltipContent?.footer}</div>
-                        </div>
+                    {step.tooltipContent?.description && (
+                      <div className="text-gray-300 text-xs mb-3 leading-relaxed">
+                        {step.tooltipContent.description}
                       </div>
                     )}
+                    {step.tooltipContent?.expectations?.length > 0 && (
+                      <div className="text-xs mb-3">
+                        <div className="text-white font-medium mb-2">What to expect:</div>
+                        {step.tooltipContent.expectations.map((exp, idx) => (
+                          <div key={idx} className="flex items-start mb-1 text-gray-300">
+                            <span className="text-green-400 mr-2">✅</span>
+                            <span>{exp}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {step.tooltipContent?.footer && (
+                      <div className="text-gray-400 text-xs italic">{step.tooltipContent.footer}</div>
+                    )}
                   </div>
-                  <div className="text-sm leading-tight max-w-[120px]">{step.title}</div>
-                </div>
-                {index < timelineSteps.length - 1 && (
-                  <div className="text-yellow-500 text-2xl mx-2 flex-shrink-0">→</div>
                 )}
               </div>
             ))}
@@ -259,6 +263,7 @@ const AboutComponent = () => {
                 <X className="h-4 w-4" />
               </Button>
             </DialogHeader>
+
             <div className="p-6 pt-0">
               {submitSuccess ? (
                 <div className="text-center text-green-400 py-8">
@@ -266,61 +271,56 @@ const AboutComponent = () => {
                   <div className="text-sm">Redirecting you to WhatsApp to connect with our design consultant.</div>
                 </div>
               ) : (
-                <>
-                  <p className="text-gray-300 mb-6 text-sm">
-                    Please fill out the enquiry below and we will get back to you as soon as possible
-                  </p>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Name"
-                      required
-                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
-                    />
-                    <div className="flex">
-                      <div className="flex items-center px-3 bg-gray-800 border border-gray-600 border-r-0 rounded-l-md">
-                        <span className="text-white text-sm">+91</span>
-                      </div>
-                      <Input
-                        type="tel"
-                        name="contactNumber"
-                        value={formData.contactNumber}
-                        onChange={handleChange}
-                        placeholder="Contact Number"
-                        required
-                        className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 rounded-l-none"
-                      />
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Name"
+                    required
+                    className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                  />
+                  <div className="flex">
+                    <div className="flex items-center px-3 bg-gray-800 border border-gray-600 border-r-0 rounded-l-md">
+                      <span className="text-white text-sm">+91</span>
                     </div>
                     <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
+                      type="tel"
+                      name="contactNumber"
+                      value={formData.contactNumber}
                       onChange={handleChange}
-                      placeholder="Email Address"
+                      placeholder="Contact Number"
                       required
-                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 rounded-l-none"
                     />
-                    <Input
-                      type="text"
-                      name="projectLocation"
-                      value={formData.projectLocation}
-                      onChange={handleChange}
-                      placeholder="Project Location"
-                      required
-                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
-                    />
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 disabled:opacity-50"
-                    >
-                      {isSubmitting ? "Submitting..." : "Submit"}
-                    </Button>
-                  </form>
-                </>
+                  </div>
+                  <Input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address"
+                    required
+                    className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                  />
+                  <Input
+                    type="text"
+                    name="projectLocation"
+                    value={formData.projectLocation}
+                    onChange={handleChange}
+                    placeholder="Project Location"
+                    required
+                    className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                  />
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 disabled:opacity-50"
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </Button>
+                </form>
               )}
             </div>
           </DialogContent>

@@ -22,7 +22,7 @@ const titleVariants = {
 
 const CompanySection = () => {
   return (
-    <main className="container mx-auto px-4 py-10 sm:py-12 relative">
+    <main className="container mx-auto px-4 py-10 sm:py-12">
       {/* Heading */}
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-10 sm:mb-16 leading-snug">
         WHY CHOOSE US?
@@ -35,23 +35,22 @@ const CompanySection = () => {
         variants={titleVariants}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 sm:gap-8"
       >
-        <Badge
-          title="PERSONALIZED"
-          subtitle="Designs"
-          tooltip="Tailored to reflect your unique style and preferences"
-          highlight
+        <Badge 
+        title="PERSONALIZED" 
+        subtitle="Designs"
+        tooltip="Tailored to reflect your unique style and preferences"
+        highlight
         />
-        <Badge
-          title="DETAILED"
-          subtitle="Quotation"
-          tooltip="No hidden costs—clear breakdown of every expense"
-          highlight
-        />
-        <Badge
-          title="TRANSPARENT"
-          subtitle="Pricing"
-          tooltip="Upfront and honest pricing with complete clarity"
-          highlight
+        <Badge 
+        title="DETAILED" 
+        subtitle="Quotation"
+        tooltip="No hidden costs—clear breakdown of every expense"
+        highlight />
+        <Badge 
+        title="TRANSPARENT" 
+        subtitle="Pricing"
+        tooltip="Upfront and honest pricing with complete clarity" 
+        highlight
         />
         <Badge
           title="EXPERIENCED & SKILLED"
@@ -69,12 +68,6 @@ const CompanySection = () => {
           title="ON-TIME"
           subtitle="Handover"
           tooltip="We value your time—projects delivered as promised"
-          highlight
-        />
-        <Badge
-          title="FLAT 10-YEAR"
-          subtitle="Warranty"
-          tooltip="Long-term peace of mind with every project. || *Starting from the Modern Charm package. Click to learn more."
           highlight
         />
       </motion.div>

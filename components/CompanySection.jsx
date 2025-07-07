@@ -70,6 +70,11 @@ const CompanySection = () => {
           tooltip="We value your time—projects delivered as promised"
           highlight
         />
+        <Badge 
+        title="FLAT 10-YEAR" 
+        subtitle="Warranty"
+        tooltip="Long-term peace of mind with every project. || <sup>*Starting from the Modern Charm package. Click to learn more" 
+        highlight />
       </motion.div>
     </main>
   )

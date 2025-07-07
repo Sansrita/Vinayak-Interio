@@ -1,7 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import "./AboutComponent.css"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Users, FileText, Layout, Truck, CheckSquare, Package, Home, X } from "lucide-react"
 
 const AboutComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -22,6 +25,7 @@ const AboutComponent = () => {
   const closeModal = () => {
     setIsModalOpen(false)
     document.body.style.overflow = "auto"
+    setSubmitSuccess(false)
   }
 
   const handleChange = (e) => {
@@ -32,33 +36,19 @@ const AboutComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-
     try {
-      // Format the message for WhatsApp
       const message = `*New Design Consultation Request*\n\n*Name:* ${formData.name}\n*Contact Number:* ${formData.contactNumber}\n*Email:* ${formData.email}\n*Project Location:* ${formData.projectLocation}`
-
-      // Make sure the URL is properly formatted to include the message
-      // If abc.whatsapp.com is a custom domain, ensure it has the proper protocol and query parameter format
       const whatsappURL = `https://wa.me/message/A5C4GDLREM33G1?text=${encodeURIComponent(message)}`
-
-      // Open WhatsApp in a new tab
       window.open(whatsappURL, "_blank")
-
-      // Show success message
       setSubmitSuccess(true)
-
-      // Reset form
       setFormData({
         name: "",
         contactNumber: "",
         email: "",
         projectLocation: "",
       })
-
-      // Close modal after delay
       setTimeout(() => {
         closeModal()
-        setSubmitSuccess(false)
       }, 3000)
     } catch (error) {
       console.error("Error opening WhatsApp:", error)
@@ -67,216 +57,275 @@ const AboutComponent = () => {
     }
   }
 
+  const timelineSteps = [
+    {
+      icon: Users,
+      title: "Project Consultation",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "The first step toward your dream space.",
+        description:
+          "Our consultation is designed to understand your needs, lifestyle, preferences, and vision. We discuss your space, budget, and style to create a design roadmap tailored just for you.",
+        expectations: [
+          "One-on-one discussion with our interior experts",
+          "Understanding of your functional and aesthetic requirements",
+          "Budget planning and space analysis",
+          "Introduction to our design process and packages",
+          "Clarifying doubts and setting clear expectations",
+        ],
+        footer: "This session sets the foundation for a smooth, customized, and transparent design journey.",
+      },
+    },
+    {
+      icon: FileText,
+      title: "Site Inspection",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "A crucial step to ensure design precision and execution accuracy.",
+        description:
+          "Our expert team visits your site to take accurate measurements and understand the space's possibilities.",
+        expectations: [
+          "Take accurate measurements",
+          "Assess structural and civil conditions",
+          "Identify layout possibilities and constraints",
+          "Understand natural lighting, ventilation, and utilities",
+          "Capture photos and notes for design planning",
+        ],
+        footer: "This detailed inspection forms the backbone of a well-executed interior project.",
+      },
+    },
+    {
+      icon: Layout,
+      title: "3D Design",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "Visualize your space before it’s built.",
+        description:
+          "We create high-quality 3D designs showcasing layout, colors, furniture, lighting, and textures.",
+        expectations: [
+          "Understand the final look and feel",
+          "Make confident design choices",
+          "Suggest changes before execution starts",
+        ],
+        footer: "Your dream space, clearly imagined—before a single nail is hit.",
+      },
+    },
+    {
+      icon: Truck,
+      title: "VR Walkthrough Video",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "Step inside your future space—virtually.",
+        description:
+          "Our immersive VR video gives you a 360° walkthrough of your 3D interior design.",
+        expectations: [
+          "Enhances design clarity",
+          "Makes decision-making easier",
+          "Perfect for remote viewing and approvals",
+        ],
+        footer: "",
+      },
+    },
+    {
+      icon: CheckSquare,
+      title: "Project Confirmation",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "Locking in your design. Moving into execution.",
+        description:
+          "Once you’re happy with the final design, we proceed with formal project confirmation.",
+        expectations: [
+          "Approval of final 3D designs & layout plans",
+          "Selection of materials and finishes",
+          "Signing of project agreement with scope, timelines & warranty terms",
+          "Advance payment to initiate material procurement and execution",
+        ],
+        footer: "This milestone marks the transition from planning to making your dream interior a reality.",
+      },
+    },
+    {
+      icon: Package,
+      title: "Execution",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "Where designs come to life—flawlessly.",
+        description:
+          "After design approval and confirmation, we begin on-site execution with precision and planning.",
+        expectations: [
+          "Material procurement & delivery",
+          "Modular manufacturing (if applicable)",
+          "Civil, electrical & carpentry work",
+          "On-site assembly & installation",
+          "Daily supervision & quality checks",
+          "Client updates at every milestone",
+        ],
+        footer: "We ensure timely progress, minimal disruptions, and top-quality craftsmanship—until your space is ready.",
+      },
+    },
+    {
+      icon: Home,
+      title: "On-Time Handover",
+      hasTooltip: true,
+      tooltipContent: {
+        subtitle: "Your dream space, delivered as promised.",
+        description: "",
+        expectations: [
+          "Handover as per the committed timeline",
+          "Project execution starts after design & material approval",
+          "All payment milestones met on or before due dates",
+          "No changes made to the approved design/layout during execution",
+          "Smooth coordination and site access as per schedule",
+          "Materials are finalized without delays or last-minute swaps",
+          "Client support in decision-making as per project flow",
+        ],
+        footer: "Note: On-time handover is subject to payments being made as per the agreed terms and timeline.",
+      },
+    },
+  ]
+
   return (
-    <div className="about-component">
-      <div className="project-timeline">
-        <h2 className="project-heading">
-          PROJECT COMPLETION IN <span className="purple-text">45 WORKING DAYS*</span>
-        </h2>
+    <div className="bg-black text-white min-h-screen py-8 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="text-yellow-500">From Vision to Reality</span>
+          </h2>
+        </div>
 
-        <div className="timeline-container">
-          {/* Step 1 */}
-          <div className="timeline-step">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <circle cx="12" cy="8" r="2" />
-                <circle cx="8" cy="12" r="2" />
-                <circle cx="16" cy="12" r="2" />
-                <path d="M12 15c-1.5 0-2.5 1-2.5 2" />
-                <path d="M14.5 17c0-1-1-2-2.5-2" />
-              </svg>
-            </div>
-            <div className="timeline-text">Project Consultation</div>
-          </div>
-
-          <div className="timeline-arrow">→</div>
-
-          {/* Step 2 */}
-          <div className="timeline-step initially-hidden">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
-                <path d="M12 17v.01" />
-                <path d="M12 13.5V15" />
-              </svg>
-            </div>
-            <div className="timeline-text">
-              Site Inspection
-              <br />
-              (Chargable)
-            </div>
-          </div>
-
-          <div className="timeline-arrow">→</div>
-
-          {/* Step 3 */}
-          <div className="timeline-step initially-hidden">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <rect x="4" y="4" width="16" height="16" rx="2" />
-                <path d="M9 9h6v6H9z" />
-                <path d="M15 4v4" />
-                <path d="M9 4v4" />
-                <path d="M9 16v4" />
-                <path d="M15 16v4" />
-              </svg>
-            </div>
-            <div className="timeline-text">
-              Detailed Interior Layout
-              <br /> & 3D Design
-            </div>
-          </div>
-
-          <div className="timeline-arrow">→</div>
-
-          {/* Step 4 */}
-          <div className="timeline-step">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <rect x="1" y="3" width="15" height="13" />
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                <circle cx="5.5" cy="18.5" r="2.5" />
-                <circle cx="18.5" cy="18.5" r="2.5" />
-              </svg>
-            </div>
-            <div className="timeline-text">
-              Walk In Video
-              <br /> (If Require){" "}
-            </div>
-          </div>
-
-          <div className="timeline-arrow">→</div>
-
-          {/* Step 5 */}
-          <div className="timeline-step">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <path d="M4 4h16v16H4z" />
-                <path d="M8 12l2 2 4-4" />
-              </svg>
-            </div>
-            <div className="timeline-text">
-              Design Approval <br /> & Project Confirmation
-            </div>
-          </div>
-
-          <div className="timeline-arrow">→</div>
-
-          {/* Step 6 */}
-          <div className="timeline-step">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                <polyline points="2 7 2 17 12 22 22 17 22 7" />
-                <line x1="12" y1="12" x2="12" y2="22" />
-              </svg>
-            </div>
-            <div className="timeline-text">
-              Material Choice
-              <br /> Delivery And Execution
-            </div>
-          </div>
-
-          <div className="timeline-arrow">→</div>
-
-          {/* Step 7 */}
-          <div className="timeline-step">
-            <div className="timeline-icon glow-on-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </div>
-            <div className="timeline-text">
-              (On-Time Delievery)
-              <br /> Your Dream Home Is Ready To Move
-            </div>
+        {/* Timeline */}
+        <div className="relative mb-12">
+          <div className="flex items-center justify-between overflow-x-visible overflow-y-visible pb-4 flex-wrap">
+            {timelineSteps.map((step, index) => (
+              <div key={index} className="flex items-center flex-shrink-0 relative">
+                <div className="flex flex-col items-center text-center min-w-[140px] px-2">
+                  <div className="relative group">
+                    <div className="w-20 h-20 rounded-full border-2 border-gray-300 flex items-center justify-center mb-4 transition-all duration-300 group-hover:bg-yellow-500 group-hover:border-yellow-500 group-hover:text-black group-hover:shadow-lg group-hover:shadow-yellow-500/50 bg-transparent cursor-pointer">
+                      <step.icon className="w-8 h-8" />
+                    </div>
+                    {step.hasTooltip && (
+                      <div className="absolute left-full top-1/2 transform -translate-y-1/2 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none w-[320px]">
+                        <div className="bg-gray-900 border border-gray-700 rounded-lg p-4 shadow-xl text-left">
+                          <div className="text-yellow-500 font-semibold text-sm mb-2">
+                            {step.tooltipContent?.subtitle}
+                          </div>
+                          <div className="text-gray-300 text-xs mb-3 leading-relaxed">
+                            {step.tooltipContent?.description}
+                          </div>
+                          <div className="text-xs mb-3">
+                            <div className="text-white font-medium mb-2">What to expect:</div>
+                            {step.tooltipContent?.expectations.map((expectation, idx) => (
+                              <div key={idx} className="flex items-start mb-1 text-gray-300">
+                                <span className="text-green-400 mr-2 flex-shrink-0">✅</span>
+                                <span>{expectation}</span>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="text-gray-400 text-xs italic">{step.tooltipContent?.footer}</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-sm leading-tight max-w-[120px]">{step.title}</div>
+                </div>
+                {index < timelineSteps.length - 1 && (
+                  <div className="text-yellow-500 text-2xl mx-2 flex-shrink-0">→</div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
-        <button
-          className="consultant-button text-white rounded-full shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2"
-          onClick={openModal}
-        >
-          Talk to Our Design Consultant
-        </button>
-      </div>
+        {/* CTA Button */}
+        <div className="text-center">
+          <Button
+            onClick={openModal}
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-full text-lg transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30"
+          >
+            Talk to Our Design Consultant
+          </Button>
+        </div>
 
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3>Talk to Our Design Consultant</h3>
-              <button className="close-button" onClick={closeModal}>
-                ×
-              </button>
-            </div>
-
-            <div className="modal-body">
+        {/* Modal */}
+        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <DialogContent className="bg-gray-900 border-gray-700 text-white max-w-md">
+            <DialogHeader>
+              <DialogTitle className="text-white text-xl">Talk to Our Design Consultant</DialogTitle>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute right-4 top-4 text-white hover:bg-gray-800"
+                onClick={closeModal}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </DialogHeader>
+            <div className="p-6 pt-0">
               {submitSuccess ? (
-                <div className="success-message">
-                  Thank you for your enquiry! Redirecting you to WhatsApp to connect with our design consultant.
+                <div className="text-center text-green-400 py-8">
+                  <div className="text-lg font-semibold mb-2">Thank you for your enquiry!</div>
+                  <div className="text-sm">Redirecting you to WhatsApp to connect with our design consultant.</div>
                 </div>
               ) : (
                 <>
-                  <p>Please fill out the enquiry below and we will get back to you as soon as possible</p>
-                  <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Name"
-                        required
-                      />
-                    </div>
-                    <div className="form-group phone-input">
-                      <div className="country-code">
-                        <span>+91</span>
+                  <p className="text-gray-300 mb-6 text-sm">
+                    Please fill out the enquiry below and we will get back to you as soon as possible
+                  </p>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <Input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Name"
+                      required
+                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                    />
+                    <div className="flex">
+                      <div className="flex items-center px-3 bg-gray-800 border border-gray-600 border-r-0 rounded-l-md">
+                        <span className="text-white text-sm">+91</span>
                       </div>
-                      <input
+                      <Input
                         type="tel"
                         name="contactNumber"
                         value={formData.contactNumber}
                         onChange={handleChange}
                         placeholder="Contact Number"
                         required
+                        className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 rounded-l-none"
                       />
                     </div>
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email Address"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="projectLocation"
-                        value={formData.projectLocation}
-                        onChange={handleChange}
-                        placeholder="Project Location"
-                        required
-                      />
-                    </div>
-                    <button type="submit" className="submit-button" disabled={isSubmitting}>
+                    <Input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email Address"
+                      required
+                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                    />
+                    <Input
+                      type="text"
+                      name="projectLocation"
+                      value={formData.projectLocation}
+                      onChange={handleChange}
+                      placeholder="Project Location"
+                      required
+                      className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                    />
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 disabled:opacity-50"
+                    >
                       {isSubmitting ? "Submitting..." : "Submit"}
-                    </button>
+                    </Button>
                   </form>
                 </>
               )}
             </div>
-          </div>
-        </div>
-      )}
+          </DialogContent>
+        </Dialog>
+      </div>
     </div>
   )
 }

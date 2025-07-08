@@ -253,15 +253,9 @@ const AboutComponent = () => {
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
           <DialogContent className="bg-gray-900 border-gray-700 text-white max-w-md">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Talk to Our Design Consultant</DialogTitle>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute right-4 top-4 text-white hover:bg-gray-800"
-                onClick={closeModal}
-              >
-                <X className="h-4 w-4" />
-              </Button>
+              <DialogTitle className="text-white text-xl">
+                Talk to Our Design Consultant
+              </DialogTitle>
             </DialogHeader>
 
             <div className="p-6 pt-0">
@@ -325,6 +319,7 @@ const AboutComponent = () => {
             </div>
           </DialogContent>
         </Dialog>
+
       </div>
     </div>
   )

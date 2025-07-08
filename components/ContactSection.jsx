@@ -60,13 +60,13 @@ export default function ContactSection() {
                     initial="offscreen"
                     whileInView="onscreen"
                     variants={titleVariants}
-                    className="text-3xl font-bold tracking-tight sm:text-4xl">Customer Reviews</motion.h2>
+                    className="text-3xl font-bold tracking-tight sm:text-4xl">“Experience spoken through every story.”</motion.h2>
                 <motion.p
                     initial="offscreen"
                     whileInView="onscreen"
                     variants={desVariants}
                     className="mt-2 text-lg leading-8">
-                    Trusted by Clients, Designed to Inspire.
+                    --(Our clients feedback)
                 </motion.p>
                 <motion.div
                     initial="offscreen"

@@ -7,6 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import Offer from "@/components/Offer";
 import Partners from "@/components/Partners";
 import Sidebar from "@/components/Sidebar";
+import Poem from "@/components/Poem";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
     <CatalogSwiperSection />
     <Partners />
     <ContactSection />
+    <Poem />
     <Sidebar />
     </>
 

@@ -15,16 +15,15 @@ const Badge = ({ title, subtitle, endCountNum, endCountText, tooltip, isPrimary 
       <div
         className={`
           rounded-full w-40 h-40 flex flex-col items-center justify-center transition-all duration-300 cursor-pointer
-          ${
-            isPrimary
-              ? "bg-yellow-500 text-white"
-              : "border-2 border-gray-200 text-white-700 hover:bg-yellow-500 hover:border-yellow-500 hover:text-white group"
+          ${isPrimary
+            ? "bg-yellow-500 text-white"
+            : "border-2 border-gray-200 text-white-700 hover:bg-yellow-500 hover:border-yellow-500 hover:text-white group"
           }
           ${highlight ? "relative" : ""}
           hover:scale-105 hover:shadow-lg transform
         `}
       >
-     
+
         {highlight && (
           <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
             ✓
@@ -32,28 +31,25 @@ const Badge = ({ title, subtitle, endCountNum, endCountText, tooltip, isPrimary 
         )}
 
         <h3
-          className={`font-semibold text-lg text-center px-2 ${
-            isPrimary ? "text-white" : "text-yellow-500 group-hover:text-white"
-          }`}
+          className={`font-semibold text-lg text-center px-2 ${isPrimary ? "text-white" : "text-yellow-500 group-hover:text-white"
+            }`}
         >
           {title}
         </h3>
 
-        
+
         {endCountNum !== undefined ? (
           <p
-            className={`text-center px-2 font-bold ${
-              isPrimary ? "text-white" : "text-white-700 group-hover:text-white"
-            }`}
+            className={`text-center px-2 font-bold ${isPrimary ? "text-white" : "text-white group-hover:text-white"
+              }`}
           >
             <CountUp end={endCountNum} delay={0.5} duration={3} />
             {endCountText && ` ${endCountText}`}
           </p>
         ) : (
           <p
-            className={`text-center px-2 font-bold text-sm ${
-              isPrimary ? "text-white" : "text-gray-700 group-hover:text-white"
-            }`}
+            className={`text-center px-2 font-bold text-sm ${isPrimary ? "text-white" : "text-white group-hover:text-white"
+              }`}
           >
             {subtitle}
           </p>

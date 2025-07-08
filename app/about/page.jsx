@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { desVariants, titleVariants } from "@/utils/animation"
 import { Phone, Mail, MapPin } from "lucide-react"
 import Sidebar from "@/components/Sidebar"
+import AboutProfessional from "@/components/AboutProfessional"
 
 const Page = () => {
   const imageUrl = "/image/whoweare.jpg"
@@ -78,6 +79,7 @@ const Page = () => {
         </div>
       </div>
 
+      <AboutProfessional />
       {/* Contact Buttons */}
       <Sidebar />
     </div>

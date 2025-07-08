@@ -187,26 +187,6 @@ const Projectpage = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto py-16 px-4">
-        <motion.h2
-          initial="offscreen"
-          whileInView={"onscreen"}
-          variants={titleVariants}
-          className="text-3xl md:text-5xl font-bold text-center mb-16"
-        >
-          Contact The Best Home Interior Designers
-        </motion.h2>
-        <div className="px-8">
-          <motion.p initial="offscreen" whileInView={"onscreen"} variants={desVariants}>
-            At the heart of every dream home is a unique vision — yours. We specialize in turning that vision into
-            reality through thoughtful design and custom craftsmanship. From concept to completion, every detail is
-            tailored to reflect your lifestyle, personality, and aspirations. Let us bring your dream to life, one
-            custom touch at a time.
-          </motion.p>
-        </div>
-      </div>
-
       <CatalogueSection />
 
       {/* Additionally We Do Section */}

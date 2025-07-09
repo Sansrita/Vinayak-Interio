@@ -15,13 +15,12 @@ module.exports = {
                 foreground: '#f5f5f5',
                 border: '#2e2e2e',
                 ring: '#4a4a4a',
-                tertiary: '#EBB866', // ← add your preferred tertiary color here
+                tertiary: '#EBB866',
             },
             fontFamily: {
-                poppins: ['var(--font-poppins)', ...fontFamily.sans],
-                montserrat: ['var(--font-montserrat)', ...fontFamily.sans],
+                cambria: ['Cambria', ...fontFamily.serif],
             },
         },
     },
     plugins: [],
-}
+};

@@ -5,22 +5,12 @@ import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { desVariants, titleVariants } from "@/utils/animation"
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react"
-import { useState } from "react"
 import Sidebar from "@/components/Sidebar"
 
 const ContactPage = () => {
   const router = useRouter()
   const officeAddress = "B/43/H/19/73, A. S. N. Sarani, Beleghata, Kolkata-700010, West Bengal, India"
   const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(officeAddress)}`
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -34,7 +24,7 @@ const ContactPage = () => {
           priority
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white p-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Your perfect space </h1>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Your perfect space</h1>
           <h2 className="text-3xl md:text-5xl font-semibold text-center">is just a contact away</h2>
         </div>
       </div>
@@ -47,48 +37,79 @@ const ContactPage = () => {
           variants={titleVariants}
           className="text-2xl md:text-xl font-bold text-center mb-16"
         >
-          Let’s bring your dream space to life. Whether you're starting from scratch or looking to refresh your space, we’re here to help 
+          Let’s bring your dream space to life. Whether you're starting from scratch or looking to refresh your space, we’re here to help.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Form */}
-          <motion.div initial="offscreen" whileInView={"onscreen"} variants={desVariants} className="mt-16">
-          <h3 className="text-2xl font-semibold mb-6 text-center">Find Us On Map</h3>
-          <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              src={mapUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Google Map of Vinayak Interio Office"
-            ></iframe>
-          </div>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Google Map */}
+          <motion.div
+            initial="offscreen"
+            whileInView={"onscreen"}
+            variants={desVariants}
+          >
+            <h3 className="text-2xl font-semibold mb-6 text-center">Find Us On Map</h3>
+            <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
+              <iframe
+                src={mapUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Google Map of Vinayak Interio Office"
+              ></iframe>
+            </div>
+          </motion.div>
 
-          {/* Contact Information */}
-          <div className="space-y-10">
-            {/* Office Address */}
+          {/* Contact Info Cards */}
+          <div className="space-y-12">
+            {/* Get in Touch */}
             <motion.div
               initial="offscreen"
               whileInView={"onscreen"}
               variants={desVariants}
-              className=" rounded-xl shadow-lg p-8"
+              className="rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Studio Address: </h3>
-              <div className="flex items-start gap-3 mb-4">
+              <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <Phone className="h-6 w-6 text-yellow-500" />
+                  <p className="text-lg">+91 6289042957</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="h-6 w-6 text-yellow-500" />
+                  <p className="text-lg">vinayakinterio1@gmail.com</p>
+                </div>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Studio Address</h3>
+              <div className="flex items-start gap-3">
                 <MapPin className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                 <p className="text-lg">{officeAddress}</p>
               </div>
-              <div className="flex items-center gap-3 mb-4">
-                <Phone className="h-6 w-6 text-yellow-500" />
-                <p className="text-lg">+91 6289042957</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-6 w-6 text-yellow-500" />
-                <p className="text-lg">vinayakinterio1@gmail.com</p>
+            </motion.div>
+
+            {/* Business Hours */}
+            <motion.div
+              initial="offscreen"
+              whileInView={"onscreen"}
+              variants={desVariants}
+              className="rounded-xl shadow-lg p-8"
+            >
+              <h3 className="text-2xl font-semibold mb-6">Business Hours</h3>
+              <div className="space-y-2 text-lg">
+                <div className="flex justify-between">
+                  <span>Monday–Friday:</span>
+                  <span>10:00 AM – 9:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Saturday:</span>
+                  <span>10:00 AM – 4:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Sunday:</span>
+                  <span>Closed</span>
+                </div>
               </div>
             </motion.div>
 
@@ -97,9 +118,9 @@ const ContactPage = () => {
               initial="offscreen"
               whileInView={"onscreen"}
               variants={desVariants}
-              className=" rounded-xl shadow-lg p-8"
+              className="rounded-xl shadow-lg p-8"
             >
-              <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-semibold mb-6">Connect With Us</h3>
               <div className="grid grid-cols-2 gap-4">
                 <a
                   href="https://wa.me/message/A5C4GDLREM33G1"
@@ -141,38 +162,11 @@ const ContactPage = () => {
                 </a>
               </div>
             </motion.div>
-
-            {/* Working Hours */}
-            <motion.div
-              initial="offscreen"
-              whileInView={"onscreen"}
-              variants={desVariants}
-              className="rounded-xl shadow-lg p-8"
-            >
-              <h3 className="text-2xl font-semibold mb-6">Business Hours</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Monday–Friday: </span>
-                  <span>10:00 AM – 9:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday: </span>
-                  <span>10:00 AM – 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday: </span>
-                  <span>Closed</span>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
-
-        {/* Map Section */}
-        
       </div>
 
-      {/* Contact Buttons */}
+      {/* Floating WhatsApp/Sidebar Contact Button */}
       <Sidebar />
     </div>
   )

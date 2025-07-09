@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Info, Star, CalendarCheck, Timer, ShieldCheck, Package } from "lucide-react"
 
 const aboutPoints = [
@@ -102,7 +101,7 @@ const aboutPoints = [
 
 const AboutProfessional = () => {
   return (
-    <div className="bg-black text-white py-12 px-4 overflow-x-hidden">
+    <div className="bg-black text-white py-12 px-4 overflow-x-hidden mb-18 font-cambria">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold">
           <span className="text-yellow-500">Why Choose Vinayak Interio?</span>
@@ -123,7 +122,7 @@ const AboutProfessional = () => {
 
             {/* Tooltip */}
             {step.hasTooltip && (
-              <div className="absolute z-30 hidden group-hover:block left-full top-1/2 transform -translate-y-1/2 ml-4 w-80 text-left bg-gray-900 border border-gray-700 rounded-lg p-4 shadow-xl">
+              <div className="absolute z-30 hidden group-hover:block left-full top-1/2 transform -translate-y-1/2 ml-4 w-80 text-left bg-gray-900 border border-gray-700 rounded-lg p-4 shadow-xl max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
                 <div className="text-yellow-500 font-semibold text-sm mb-2">
                   {step.tooltipContent.subtitle}
                 </div>

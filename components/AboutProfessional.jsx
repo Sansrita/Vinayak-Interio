@@ -94,7 +94,7 @@ const aboutPoints = [
   },
   {
     icon: Package,
-    title: "75+ Projects",
+    title: "75+ Projects per year",
     hasTooltip: false
   }
 ]

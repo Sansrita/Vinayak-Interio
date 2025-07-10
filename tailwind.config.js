@@ -18,7 +18,7 @@ module.exports = {
                 tertiary: '#EBB866',
             },
             fontFamily: {
-                cambria: ['Cambria', ...fontFamily.serif],
+                cambria: ['font-[<value>]', ...fontFamily.serif],
             },
         },
     },

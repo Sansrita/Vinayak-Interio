@@ -37,7 +37,7 @@ const HeroSection = () => {
   }
 
   return (
-    <div className="container py-12 xl:py-24 h-[auto] text-center lg:py-0 lg:text-left lg:flex lg:justify-between font-cambria">
+    <div className="container py-12 xl:py-24 h-[auto] text-center lg:py-0 lg:text-left lg:flex lg:justify-between font-[<value>]">
       {/* Left Section */}
       <div className="lg:w-1/2 xl:py-14 lg:py-8 pl-8 pr-32">
         <motion.p

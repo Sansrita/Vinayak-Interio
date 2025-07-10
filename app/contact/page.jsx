@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { desVariants, titleVariants } from "@/utils/animation"
@@ -9,20 +8,14 @@ import Sidebar from "@/components/Sidebar"
 
 const ContactPage = () => {
   const router = useRouter()
-  const officeAddress = "B/43/H/19/73, A. S. N. Sarani, Beleghata, Kolkata-700010, West Bengal, India"
+  const officeAddress = "Roy Chowdhury House, 43/H/19/56, Chaulpatty Rd, Kulia, Beleghata, Kolkata, West Bengal 700010"
   const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(officeAddress)}`
 
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Header Section */}
       <div className="relative w-full h-[60vh]">
-        <Image
-          src="/image/contact-bg.jpg"
-          alt="Interior Design"
-          fill
-          className="object-cover brightness-75"
-          priority
-        />
+        <Image src="/image/contact-bg.jpg" alt="Interior Design" fill className="object-cover brightness-75" priority />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-center items-center text-white p-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-center">Your perfect space</h1>
           <h2 className="text-3xl md:text-5xl font-semibold text-center">is just a contact away</h2>
@@ -37,16 +30,13 @@ const ContactPage = () => {
           variants={titleVariants}
           className="text-2xl md:text-xl font-bold text-center mb-16"
         >
-          Let’s bring your dream space to life. Whether you're starting from scratch or looking to refresh your space, we’re here to help.
+          Let's bring your dream space to life. Whether you're starting from scratch or looking to refresh your space,
+          we're here to help.
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Google Map */}
-          <motion.div
-            initial="offscreen"
-            whileInView={"onscreen"}
-            variants={desVariants}
-          >
+          <motion.div initial="offscreen" whileInView={"onscreen"} variants={desVariants}>
             <h3 className="text-2xl font-semibold mb-6 text-center">Find Us On Map</h3>
             <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
               <iframe
@@ -85,7 +75,7 @@ const ContactPage = () => {
               <h3 className="text-2xl font-semibold mb-4">Studio Address</h3>
               <div className="flex items-start gap-3">
                 <MapPin className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
-                <p className="text-lg">{officeAddress}</p>
+                <p className="text-lg">B/43/H/19/73, A. S. N Sarani, Beleghata, Kolkata-700010, West Bengal, India</p>
               </div>
             </motion.div>
 
@@ -165,8 +155,6 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating WhatsApp/Sidebar Contact Button */}
       <Sidebar />
     </div>
   )

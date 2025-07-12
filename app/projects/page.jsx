@@ -3,8 +3,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { desVariants, titleVariants } from "@/utils/animation"
-import CatalogueSection from "@/components/CatalogueSection"
 import Link from "next/link"
 import { TbArrowUpRight } from "react-icons/tb"
 import {
@@ -14,7 +12,6 @@ import {
   Layers,
   Droplets,
   Lightbulb,
-  Sparkles,
   Home,
   Building2,
   Armchair,
@@ -26,6 +23,9 @@ import {
   Sofa,
   Trophy,
   ImageIcon,
+  Bed,
+  ChefHat,
+  Bath,
 } from "lucide-react"
 import Sidebar from "@/components/Sidebar"
 import { useState } from "react"
@@ -48,7 +48,26 @@ const Projectpage = () => {
   }
 
   const additionalServices = [
-    
+    {
+      icon: Bed,
+      title: "Bedroom",
+      description: "Comfortable and stylish bedroom designs for peaceful rest",
+    },
+    {
+      icon: ChefHat,
+      title: "Kitchen",
+      description: "Functional and modern kitchen spaces for culinary excellence",
+    },
+    {
+      icon: Bath,
+      title: "Bathroom",
+      description: "Luxurious and practical bathroom designs for daily comfort",
+    },
+    {
+      icon: Sofa,
+      title: "Living Room",
+      description: "Welcoming living spaces perfect for family gatherings",
+    },
     {
       icon: DoorOpen,
       title: "Elegant Entryway",
@@ -125,11 +144,6 @@ const Projectpage = () => {
       description: "Window treatments and privacy solutions",
     },
     {
-      icon: Sofa,
-      title: "Sofa & Cushion",
-      description: "Custom upholstery and comfort solutions",
-    },
-    {
       icon: Trophy,
       title: "Showpieces",
       description: "Display solutions and decorative showcases",
@@ -187,8 +201,6 @@ const Projectpage = () => {
         </div>
       </div>
 
-      <CatalogueSection />
-
       {/* Additionally We Do Section */}
       <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-black py-20 px-4">
         <div className="container mx-auto">
@@ -200,10 +212,9 @@ const Projectpage = () => {
           >
             <div className="flex items-center justify-center mb-8 gap-4">
               <div className="h-px w-16 bg-gradient-to-r from-transparent to-white/50"></div>
-              <Sparkles className="w-6 h-6 text-white/80" />
               <div className="h-px w-16 bg-gradient-to-l from-transparent to-white/50"></div>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">Additionally We Do</h2>
+
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               Comprehensive interior solutions to transform every corner of your space
             </p>
@@ -242,16 +253,15 @@ const Projectpage = () => {
             <p className="text-gray-400 text-lg">Ready to transform your space with our comprehensive services?</p>
           </motion.div>
         </div>
-        <div className="py-12 flex justify-center">
-        <Link href="https://wa.me/message/A5C4GDLREM33G1">
-          <Button className="inline-flex items-center px-8 py-3 text-white rounded-lg shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
-            Book Now <TbArrowUpRight className="w-5 h-5 ml-2" />
-          </Button>
-        </Link>
-      </div>
-      </div>
 
-      
+        <div className="py-12 flex justify-center">
+          <Link href="https://wa.me/message/A5C4GDLREM33G1">
+            <Button className="inline-flex items-center px-8 py-3 text-white rounded-lg shadow-lg hover:bg-gray-800 hover:ring-2 hover:ring-gray-950 ring-offset-2">
+              Book Now <TbArrowUpRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </div>
 
       {/* Contact Buttons */}
       <Sidebar />
